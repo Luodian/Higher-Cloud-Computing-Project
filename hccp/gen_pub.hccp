@@ -8,6 +8,12 @@ file_id_rsa=$HOME/.ssh/id_rsa
 file_id_rsa_pub=$HOME/.ssh/id_rsa.pub
 file_id_rsa_config=$HOME/.ssh/config
 file_authorized_key=$HOME/.ssh/authorized_keys
+if [ -e $HOME/.ssh ]
+then
+   echo $1 | sudo -S chmod +w $HOME/.ssh
+   echo $1 | sudo -S mv $HOME/.ssh $HOME/pushdown 
+fi
+
 if [ -e $file_id_rsa ] #generally speeking ,the file:id_rsa_pub and the file:id_rsa exit cannot exit without each other
 then
     echo "the pub_key has already generated"
@@ -21,7 +27,8 @@ then
     echo "the file authorized_keys has already exited" #although the authorized_keys has already exited, still need to confirm that is the key written into the file
     key=(`cat $file_id_rsa_pub`)
     ike=0
-    source ./ike.hccp ${key[1]}
+    echo $1 | sudo -S chmod +x $HOME/hccp/ike.hccp
+    source $HOME/hccp/ike.hccp ${key[1]}
     if [ $ike == 0 ]
     then
         cat $file_id_rsa_pub >> $file_authorized_key
@@ -30,3 +37,6 @@ else
     touch $file_authorized_key
     cat $file_id_rsa_pub >> $file_authorized_key
 fi
+
+echo $1 | sudo -S chmod +x $HOME/hccp/chsshmod.hccp
+$HOME/hccp/chsshmod.hccp $1 
