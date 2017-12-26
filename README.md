@@ -41,3 +41,56 @@ We are committed to building a cloud computing platform that leverages idle reso
   - 包含用户名，昵称，密码的填写。
   - 包含用户邮箱的填写。
   - 填写邮箱后等待120S的验证码，确认后激活注册用户。
+
+#### 关于客户端对于算力以及计算资源的粗略想法
+
+Ubuntu下获取CPU内核数目信息工具：
+
+```shell
+cat /proc/cpuinfo | grep processor | wc -l
+//直接使用wc计数，在通道中拿这个数值
+```
+
+![](https://ws4.sinaimg.cn/large/006tKfTcly1fmugiq991ij30z208a0sv.jpg)
+
+Ubuntu下算力评估工具：
+
+```shell
+sudo apt-get install sysbench
+//num-thread使用上述内核个数
+sysbench --test=cpu --cpu-max-prime=20000 --num-threads=4 run
+```
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1fmugl4x5cyj30u60egdg2.jpg)
+
+Benchmark的计算方式
+
+暂时先用线性解决方案（我们需要一个定义域在0~ $+\infty$值域在0~100的单调递减函数）：
+
+1. f(x) = -x + 100.
+
+使用 inxi 查看配置信息
+
+```shell
+sudo apt-get install inxi
+inxi
+```
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fmuhxm0ck1j30ze05y0sx.jpg)
+
+实时查看mem，cpu的工作状态
+
+> 提供一下几种作为参考
+
+```shell
+cat /proc/meminfo //查看mem的工作状态，大致看下
+top //实时显示命令状态，动态的，不太确定是否好获取输出信息
+vmstat //这个也只能用来大致的看下
+```
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fmui2sxx0mj30o008a0sr.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tKfTcly1fmuii71rw0j30z605q74e.jpg)
+
+![](https://ws4.sinaimg.cn/large/006tKfTcly1fmuik8m7s7j314i04iweh.jpg)
+
