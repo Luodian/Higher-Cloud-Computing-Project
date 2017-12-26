@@ -1,9 +1,8 @@
-package sample;
+package sample.View;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -19,7 +18,6 @@ public class Main extends Application {
 	
 	@Override
 	public void start (Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load (getClass ().getResource ("sample.fxml"));
 		
 		Screen screen = Screen.getPrimary ();
 		Rectangle2D bounds = screen.getVisualBounds ();
@@ -29,7 +27,7 @@ public class Main extends Application {
 		double maxX = bounds.getMaxX ();
 		double maxY = bounds.getMaxY ();
 		
-		Scene scene = new Scene (root, (maxX - minX) * 0.5, (maxY - minY) * 0.5);
+		Scene scene = new Scene (new Group (), (maxX - minX) * 0.6, (maxY - minY) * 0.6);
 		primaryStage.setTitle ("Higher Compute Platform");
 		primaryStage.setScene (scene);
 		primaryStage.show ();

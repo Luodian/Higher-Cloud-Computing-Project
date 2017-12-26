@@ -1,4 +1,4 @@
-package sample;
+package sample.Control;
 
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
@@ -17,6 +17,7 @@ import javafx.scene.shape.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sample.View.Main;
 
 import java.io.File;
 import java.util.ArrayList;
