@@ -1,0 +1,10 @@
+#!/bin/bash
+#created by Elrond Wang
+#2017/12/11 15:28
+#version 1.0
+#welcome
+
+localip=`/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
+ssh -o StrictHostKeyChecking=no ${1}@${2} "cat /home/${1}/.ssh/id_rsa.pub" >> $HOME/.ssh/authorized_keys
+ssh -t -t -o StrictHostKeyChecking=no ${1}@${2} "ssh -t -t -o StrictHostKeyChecking=no ${USER}@${localip} \"exit\" "
+
