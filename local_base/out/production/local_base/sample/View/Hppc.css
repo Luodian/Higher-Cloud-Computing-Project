@@ -1,0 +1,17 @@
+.button {
+    -fx-pref-width: 120;
+    -fx-pref-height: 60;
+    -fx-text-fill: black;
+    -fx-font-family: "Ubuntu Condensed";
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+#log {
+    -fx-font-family: "Ubuntu Condensed";
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
