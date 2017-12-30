@@ -2,15 +2,16 @@ package sample.BackEnd;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class SystemPreferences {
-	private String hostname = null;
-	private String inetIP = null;
-	private String CPUInfo = null;
-	private String MemInfo = null;
-	private String GPUInfo = null;
-	private String AverageAsset = null;
-	private String StartThreshold = null;
+	private static String hostname;
+	private static String inetIP;
+	private static String CPUInfo;
+	private static String MemInfo;
+	private static String GPUInfo;
+	private static String AverageAsset;
+	private static String StartThreshold;
 	
 	SystemPreferences () {
 	
@@ -35,10 +36,25 @@ public class SystemPreferences {
 	
 	
 	public static String fetchHostName () {
-		return ExecuteCommand ("cat /etc/hostname");
+		hostname = ExecuteCommand ("cat /etc/hostname");
+		return hostname;
 	}
 	
-	public String fetchInetIP () {
+	public static String fetchInetIP () {
+		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/InetIP.sh");
+		result = result.trim ();
+		int first_index = result.indexOf ("netmask");
+		int second_index = result.indexOf ("netmask", first_index + 8);
+		inetIP = "";
+		Stack<Character> temp = new Stack<> ();
+		temp.clear ();
+		for (int i = second_index - 2; i >= 0 && !" ".equals (String.valueOf (result.charAt (i))); --i) {
+			temp.push (result.charAt (i));
+		}
+		while (!temp.isEmpty ()) {
+			inetIP += String.valueOf (temp.peek ());
+			temp.pop ();
+		}
 		return inetIP;
 	}
 }
