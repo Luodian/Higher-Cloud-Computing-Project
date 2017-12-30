@@ -6,18 +6,19 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import sample.BackEnd.SystemPreferences;
 
 public class Main extends Application {
 	
 	public static Stage priStg;
 	
 	public static void main (String[] args) {
-		launch (args);
-		
+//		launch (args);
+		System.out.println (SystemPreferences.fetchHostName ());
 	}
 	
 	@Override
-	public void start (Stage primaryStage) throws Exception {
+	public void start (Stage primaryStage) {
 		
 		Screen screen = Screen.getPrimary ();
 		Rectangle2D bounds = screen.getVisualBounds ();
