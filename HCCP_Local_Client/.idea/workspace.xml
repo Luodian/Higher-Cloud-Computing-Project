@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="SystemPreferences里面包含了电脑各项基础信息的获取以及算力等评测的工具">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetProcessorNum.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetSudo.sh" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/cpuinfo.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/gpuinfo.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,11 +71,11 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
-              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+              <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5028#5029#0" expanded="true" />
-                <element signature="e#5058#5059#0" expanded="true" />
+                <element signature="e#5010#5011#0" expanded="true" />
+                <element signature="e#5040#5041#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,21 +141,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetSudo.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GetSudo.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetSudo.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Install_sys_bench.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Install_sys_bench.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+              <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -543,7 +536,7 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1514622970946" duration="6541000" />
       <workItem from="1514646092500" duration="683000" />
-      <workItem from="1514688484096" duration="16452000" />
+      <workItem from="1514688484096" duration="16913000" />
     </task>
     <task id="LOCAL-00001" summary="增加了查看配置文件的接口">
       <created>1514634076947</created>
@@ -587,11 +580,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514705670233</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="SystemPreferences里面包含了电脑各项基础信息的获取以及算力等评测的工具">
+      <created>1514721506008</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1514721506008</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24978000" />
+    <option name="totallyTimeSpent" value="25439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -650,7 +650,8 @@
     <MESSAGE value="可以获取gpu,mem,cpu等info" />
     <MESSAGE value="包裹了一层maven" />
     <MESSAGE value="mvn supported" />
-    <option name="LAST_COMMIT_MESSAGE" value="mvn supported" />
+    <MESSAGE value="SystemPreferences里面包含了电脑各项基础信息的获取以及算力等评测的工具" />
+    <option name="LAST_COMMIT_MESSAGE" value="SystemPreferences里面包含了电脑各项基础信息的获取以及算力等评测的工具" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -690,13 +691,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>153</line>
+          <line>148</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>154</line>
+          <line>149</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
@@ -726,8 +727,8 @@
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5028#5029#0" expanded="true" />
-            <element signature="e#5058#5059#0" expanded="true" />
+            <element signature="e#5010#5011#0" expanded="true" />
+            <element signature="e#5040#5041#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -756,8 +757,8 @@
           <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5028#5029#0" expanded="true" />
-            <element signature="e#5058#5059#0" expanded="true" />
+            <element signature="e#5010#5011#0" expanded="true" />
+            <element signature="e#5040#5041#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -879,11 +880,11 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5028#5029#0" expanded="true" />
-            <element signature="e#5058#5059#0" expanded="true" />
+            <element signature="e#5010#5011#0" expanded="true" />
+            <element signature="e#5040#5041#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -908,14 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetSudo.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -953,6 +946,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetSudo.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
