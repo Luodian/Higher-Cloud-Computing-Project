@@ -57,4 +57,52 @@ public class SystemPreferences {
 		}
 		return inetIP;
 	}
+	
+	public static String fetchCPUInfo () {
+		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/CPUInfo.sh");
+		result = result.trim ();
+		int first_comma_index = 0;
+		int second_comma_index = 0;
+		int third_comma_index = 0;
+		first_comma_index = result.indexOf (":");
+		second_comma_index = result.indexOf (":", first_comma_index + 1);
+		third_comma_index = result.indexOf (":", second_comma_index + 1);
+		String cpuinfo = result.substring (second_comma_index + 1, third_comma_index);
+		cpuinfo = cpuinfo.trim ();
+		cpuinfo = cpuinfo.substring (0, cpuinfo.length () - 5);
+		return cpuinfo;
+	}
+	
+	public static String fetchMemInfo () {
+		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/MEMInfo.sh");
+		result = result.trim ();
+		int first_comma_index = result.indexOf (":");
+		result = result.substring (first_comma_index + 1);
+		result = result.trim ();
+		String MemTotal = "";
+		for (int i = 0; i < result.length () && !String.valueOf (result.charAt (i)).equals (" "); ++i) {
+			MemTotal += String.valueOf (result.charAt (i));
+		}
+		String mem_value = null;
+		if (MemTotal.length () == 7) {
+			mem_value = String.valueOf (result.charAt (0)) + " GB";
+		} else if (MemTotal.length () == 8) {
+			mem_value = result.substring (0, 1) + " GB";
+		} else if (MemTotal.length () == 6) {
+			mem_value = result.substring (0, 2) + " MB";
+		} else {
+			mem_value = "Exception";
+		}
+		return mem_value;
+	}
+	
+	public static String fetchGPUInfo () {
+		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/GPUInfo.sh");
+		int first_comma_index = result.indexOf (":");
+		result = result.substring (first_comma_index + 1);
+		int second_comma_index = result.indexOf (":");
+		result = result.substring (second_comma_index + 1);
+		result = result.trim ();
+		return result;
+	}
 }

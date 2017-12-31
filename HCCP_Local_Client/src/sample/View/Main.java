@@ -15,7 +15,7 @@ public class Main extends Application {
 	public static void main (String[] args) {
 //		launch (args);
 //		System.out.println (SystemPreferences.fetchHostName ());
-		System.out.println (SystemPreferences.fetchInetIP ());
+		System.out.println (SystemPreferences.fetchGPUInfo ());
 	}
 	
 	@Override
