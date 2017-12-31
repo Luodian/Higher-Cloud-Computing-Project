@@ -6,21 +6,15 @@ import sample.ServerUtils.ServerUtil;
  * Created by ������ on 2017/12/25.
  */
 public class test {
-    public static void main(String[] args) {
-        try {
-//            SSHServerUtil sshServerUtil = new SSHServerUtil(1);
-//            sshServerUtil.requireToServer();
-            try {
+    public static void main(String[] args) throws Exception {
 
-            } catch (Exception ex) {
-
-            }
             ServerUtil serverUtil = new ServerUtil(1, 1, ServerUtil.GET_ONLINE_MACHINE_INFO) {
                 @Override
                 protected String taskFinish() throws Exception {
                     return null;
                 }
             };
+        serverUtil.requireToServer();
 
 //            ArrayList<Integer> arrayList = new ArrayList<Integer>();
 //            arrayList.add(2);
@@ -32,8 +26,5 @@ public class test {
 //            undoSSHKey.undo();
 //            EstablishSSHKey establishSSHKey = new EstablishSSHKey("12345678");
 //            establishSSHKey.execute();n
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
