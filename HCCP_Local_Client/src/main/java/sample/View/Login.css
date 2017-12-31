@@ -4,7 +4,7 @@ root {
 }
 
 .root {
-    -fx-background-image: url("escape5.jpg");
+    -fx-background-image: url("Resources/escape5.jpg");
 }
 
 .label {

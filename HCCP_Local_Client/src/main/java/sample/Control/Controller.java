@@ -97,9 +97,9 @@ public class Controller {
 		int nodeNum = 12;
 		double meanDigree = 2 * Math.PI / nodeNum;
 		for (int i = 0; i < nodeNum; i++) {
-			Node curNode = new Node (Math.random (), i + 1);
+			final Node curNode = new Node (Math.random (), i + 1);
 			curNode.setDirec (center_image.getHeight () / 6 + center_image.getHeight () / 3 * Math.random ());
-			Button curBtn = curNode.getBtn ();
+			final Button curBtn = curNode.getBtn ();
 			curBtn.setOnAction (new EventHandler<ActionEvent> () {
 				@Override
 				public void handle (ActionEvent event) {
@@ -152,7 +152,7 @@ public class Controller {
 	}
 	
 	private void login () {
-		Stage loginStage = new Stage ();
+		final Stage loginStage = new Stage ();
 		GridPane loginPane = new GridPane ();
 		loginPane.setPadding (new Insets (20, 20, 20, 20));
 		loginPane.setHgap (25);

@@ -41,7 +41,7 @@ public class SystemPreferences {
 	}
 	
 	public static String fetchInetIP () {
-		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/InetIP.sh");
+		String result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/InetIP.sh");
 		result = result.trim ();
 		int first_index = result.indexOf ("netmask");
 		int second_index = result.indexOf ("netmask", first_index + 8);
@@ -59,7 +59,7 @@ public class SystemPreferences {
 	}
 	
 	public static String fetchCPUInfo () {
-		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/CPUInfo.sh");
+		String result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/CPUInfo.sh");
 		result = result.trim ();
 		int first_comma_index = 0;
 		int second_comma_index = 0;
@@ -74,7 +74,7 @@ public class SystemPreferences {
 	}
 	
 	public static String fetchMemInfo () {
-		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/MEMInfo.sh");
+		String result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/MEMInfo.sh");
 		result = result.trim ();
 		int first_comma_index = result.indexOf (":");
 		result = result.substring (first_comma_index + 1);
@@ -97,12 +97,21 @@ public class SystemPreferences {
 	}
 	
 	public static String fetchGPUInfo () {
-		String result = ExecuteCommand ("sh src/sample/BackEnd/Shell/GPUInfo.sh");
+		String result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/GPUInfo.sh");
 		int first_comma_index = result.indexOf (":");
 		result = result.substring (first_comma_index + 1);
 		int second_comma_index = result.indexOf (":");
 		result = result.substring (second_comma_index + 1);
 		result = result.trim ();
 		return result;
+	}
+	
+	public static Double AssesBenchMark (int thread_num, boolean has_sys_bench, String password) {
+		String result = ExecuteCommand ("sh src/main/java/sample/BachEnd/Shell/ComputeAssesment.sh");
+		int first_comma_index = result.indexOf ("total time:");
+		int first_s_index = result.substring (first_comma_index + 1).indexOf ("s");
+		result = result.substring (first_comma_index + 1, first_s_index);
+		result = result.trim ();
+		return 0d;
 	}
 }

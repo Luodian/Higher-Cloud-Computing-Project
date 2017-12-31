@@ -6,16 +6,15 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import sample.BackEnd.SystemPreferences;
 
 public class Main extends Application {
 	
 	public static Stage priStg;
 	
 	public static void main (String[] args) {
-//		launch (args);
+		launch (args);
 //		System.out.println (SystemPreferences.fetchHostName ());
-		System.out.println (SystemPreferences.fetchGPUInfo ());
+//		System.out.println (SystemPreferences.fetchGPUInfo ());
 	}
 	
 	@Override
