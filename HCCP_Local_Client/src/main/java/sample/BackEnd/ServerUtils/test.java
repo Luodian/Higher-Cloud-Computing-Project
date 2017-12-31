@@ -1,6 +1,4 @@
-package sample.SSH;
-
-import sample.ServerUtils.ServerUtil;
+package sample.BackEnd.ServerUtils;
 
 /**
  * Created by ������ on 2017/12/25.

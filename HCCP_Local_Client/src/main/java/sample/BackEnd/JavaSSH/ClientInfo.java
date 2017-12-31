@@ -1,4 +1,4 @@
-package sample.SSH;
+package sample.BackEnd.JavaSSH;
 
 /**
  * Created by Elrond Wang

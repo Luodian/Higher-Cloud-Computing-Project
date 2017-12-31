@@ -1,4 +1,4 @@
-package sample.ServerUtils;
+package sample.BackEnd.ServerUtils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -16,17 +16,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlaveToServerUtil extends ServerUtil {
+public class MasterToServerUtil extends ServerUtil {
     protected int user_id;
     protected MasterTask masterTask = null;
 
-    public SlaveToServerUtil(int machine_id, int ip, int user_id, int operation_selected, MasterTask masterTask) {
+    public MasterToServerUtil(int machine_id, int ip, int user_id, int operation_selected, MasterTask masterTask) {
         super(machine_id, ip, operation_selected);
         this.masterTask = masterTask;
         this.user_id = user_id;
     }
 
-    public SlaveToServerUtil(int machine_id, int ip, int operation_selected, int user_id) {
+    public MasterToServerUtil(int machine_id, int ip, int operation_selected, int user_id) {
         super(machine_id, ip, operation_selected);
         this.user_id = user_id;
     }
@@ -41,7 +41,7 @@ public class SlaveToServerUtil extends ServerUtil {
         params.add(new BasicNameValuePair("machine_ip", String.valueOf(machine_id)));
         params.add(new BasicNameValuePair("user_id", String.valueOf(masterTask.getUser_id())));
         params.add(new BasicNameValuePair("task_id", String.valueOf(masterTask.getTask_id())));
-        params.add(new BasicNameValuePair("actor", "slave"));
+        params.add(new BasicNameValuePair("actor", "master"));
         post.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
         HttpResponse response = task_finish.execute(post);
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {

@@ -1,7 +1,5 @@
 package sample.BackEnd.JavaSSH;
 
-import java.util.List;
-
 /**
  * Created by ������ on
  * 2017/12/4 20:35
@@ -11,11 +9,14 @@ import java.util.List;
  * welcome
  */
 public interface SSHHandler {
-	String file_rsa_pub = "$HOME/.ssh/ssh_rsa.pub";
-	String file_authorized_keys = "$HOME/.ssh/authorized_keys";
-	String gen_pub = "$HOME/hccp/gen_pub.hccp ";
-	
-	void sshTemporalHandle ();
-	
-	List<String> requireToServer ();
+    String FILE_RSA_PUB = "/home/elrond/.ssh/id_rsa.pub";
+    String FILE_AUTHORIZED_KEYS = "/home/elrond/.ssh/authorized_keys";
+    String GEN_PUB = "/home/elrond/.hccp/gen_pub.hccp";
+    String UNDO_AUTHORIZED_KEYS = "/home/elrond/.hccp/gen_pub.hccp";
+    String MASTER_TO_SLAVE = "/home/elrond/.hccp/mastertoslave.hccp ";
+    String SSH_ALL_SLAVES = "/home/elrond/.hccp/sshallslaves.hccp ";
+
+    Object sshTemporalHandle() throws Exception;
+
+    Object requireToServer() throws Exception;
 }

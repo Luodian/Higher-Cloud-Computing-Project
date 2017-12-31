@@ -1,4 +1,4 @@
-package sample.ServerUtils;
+package sample.BackEnd.ServerUtils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,9 +14,9 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import sample.SSH.ClientInfo;
-import sample.SSH.HostSSHHandler;
-import sample.SSH.SSHHandler;
+import sample.BackEnd.JavaSSH.ClientInfo;
+import sample.BackEnd.JavaSSH.HostSSHHandler;
+import sample.BackEnd.JavaSSH.SSHHandler;
 
 import java.io.File;
 import java.util.ArrayList;

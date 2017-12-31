@@ -1,4 +1,4 @@
-package sample.ServerUtils;
+package sample.BackEnd.ServerUtils;
 
 public class MasterTask {
     private int user_id;
