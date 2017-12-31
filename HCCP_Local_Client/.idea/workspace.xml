@@ -1,74 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="mvn supported">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_expectit_expectit_core_0_3_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/ConsoleSimulator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/EstablishSSHKey.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/HostSSHHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/MasterSSHHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/SSHCommandExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/SSHHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/SlaveSSHHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/ThreadUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/SSHCommandExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/CPUInfo.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GPUInfo.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/InetIP.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/MEMInfo.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/cpuinfo.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/gpuinfo.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/Control/Controller.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Hppc.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Login.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Resources/46.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Resources/escape4.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Resources/escape5.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Resources/image.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Resources/slaver.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/sample.fxml" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="SystemPreferences里面包含了电脑各项基础信息的获取以及算力等评测的工具">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetProcessorNum.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/HCCP_Local_Client.iml" afterPath="$PROJECT_DIR$/HCCP_Local_Client.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/Resources/46.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/Resources/escape4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/Resources/escape5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/Resources/image.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/Resources/slaver.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/View/Hppc.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/View/Login.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCCP_Local_Client/sample/View/sample.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/ConsoleSimulator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/EstablishSSHKey.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/HostSSHHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/MasterSSHHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/SSHCommandExecutor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/SSHHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/SlaveSSHHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/JavaSSH/ThreadUtil.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/SSHCommandExecutor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/Shell/CpuInfo.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/Shell/InetIP.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/Shell/cpuinfo.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/Shell/gpuinfo.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/Shell/gpuinfo.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/Shell/meminfo.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BackEnd/SystemPreferences.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Control/Controller.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Resources/46.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Resources/escape4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Resources/escape5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Resources/image.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Resources/slaver.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/View/Hppc.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/View/Login.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/View/Main.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/View/sample.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/cpuinfo.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/gpuinfo.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,26 +74,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Main.java">
+      <file leaf-file-name="SystemPreferences.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="132">
+              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5028#5029#0" expanded="true" />
+                <element signature="e#5058#5059#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemPreferences.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java">
+      <file leaf-file-name="GPUInfo.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GPUInfo.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InetIP.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/InetIP.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetProcessorNum.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetProcessorNum.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CPUInfo.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/CPUInfo.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,52 +132,39 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="61" />
+              <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="MEMInfo.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/MEMInfo.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state relative-caret-position="15">
+              <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Login.css">
+      <file leaf-file-name="GetSudo.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetSudo.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-219">
-              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Control/Controller.java">
+      <file leaf-file-name="Install_sys_bench.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2235">
-              <caret line="187" column="36" lean-forward="false" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+            <state relative-caret-position="15">
+              <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/sample.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -255,10 +214,16 @@
         <option value="$PROJECT_DIR$/src/sample/BackEnd/SystemPreferences.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Control/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/View/Login.css" />
         <option value="$PROJECT_DIR$/src/main/java/sample/View/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/UserPasswd" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/TrySudo.sh" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Assesment.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetProcessorNum.sh" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh" />
       </list>
     </option>
   </component>
@@ -354,7 +319,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Control" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="Shell" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HCCP_Local_Client" type="b2602c69:ProjectViewProjectNode" />
@@ -364,6 +330,12 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HCCP_Local_Client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HCCP_Local_Client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -571,7 +543,7 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1514622970946" duration="6541000" />
       <workItem from="1514646092500" duration="683000" />
-      <workItem from="1514688484096" duration="8572000" />
+      <workItem from="1514688484096" duration="16452000" />
     </task>
     <task id="LOCAL-00001" summary="增加了查看配置文件的接口">
       <created>1514634076947</created>
@@ -608,11 +580,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514702087826</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="mvn supported">
+      <created>1514705670232</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1514705670233</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17098000" />
+    <option name="totallyTimeSpent" value="24978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -620,7 +599,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -633,6 +612,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33037156" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -650,7 +630,6 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,36 +660,48 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>70</line>
+          <line>69</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>72</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>76</line>
+          <line>75</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>85</line>
+          <line>84</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
-          <line>100</line>
+          <line>99</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
+          <line>153</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java</url>
+          <line>154</line>
+          <properties />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -735,6 +726,8 @@
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5028#5029#0" expanded="true" />
+            <element signature="e#5058#5059#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,6 +756,8 @@
           <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5028#5029#0" expanded="true" />
+            <element signature="e#5058#5059#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -786,38 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/MEMInfo.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/InetIP.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/CPUInfo.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GPUInfo.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SSHCommandExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-733">
@@ -828,34 +791,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/gpuinfo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/cpuinfo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -868,43 +807,157 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-219">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/sample.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
+        <state relative-caret-position="-6">
           <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCCP_Local_Client.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/gpuinfo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/TrySudo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Assesment.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SystemPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5028#5029#0" expanded="true" />
+            <element signature="e#5058#5059#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/CPUInfo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetProcessorNum.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GetSudo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/InetIP.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/GPUInfo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/MEMInfo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/UserPasswd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

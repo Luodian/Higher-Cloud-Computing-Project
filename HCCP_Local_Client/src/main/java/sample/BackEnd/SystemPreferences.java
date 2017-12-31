@@ -1,7 +1,6 @@
 package sample.BackEnd;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Stack;
 
 public class SystemPreferences {
@@ -11,7 +10,7 @@ public class SystemPreferences {
 	private static String MemInfo;
 	private static String GPUInfo;
 	private static String AverageAsset;
-	private static String StartThreshold;
+	private static double StartThreshold;
 	
 	SystemPreferences () {
 	
@@ -106,12 +105,52 @@ public class SystemPreferences {
 		return result;
 	}
 	
-	public static Double AssesBenchMark (int thread_num, boolean has_sys_bench, String password) {
-		String result = ExecuteCommand ("sh src/main/java/sample/BachEnd/Shell/ComputeAssesment.sh");
+	//调用之前先询问下密码
+	private static void install_sys_bench (String passwd) {
+		try {
+			String command = "echo " + passwd + " | sudo -S ls";
+			File file_stream = new File ("src/main/java/sample/BackEnd/Shell/TrySudo.sh");
+			file_stream.createNewFile ();
+			// creates a FileWriter Object
+			FileWriter writer = new FileWriter (file_stream);
+			// 向文件写入内容
+			writer.write ("#!/usr/bin/env bash\n" + command);
+			
+			writer.flush ();
+			writer.close ();
+			
+			String valid_root = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/GetSudo.sh");
+			
+			String install_result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh");
+			
+		} catch (IOException E) {
+			E.printStackTrace ();
+		}
+	}
+	
+	public static int GetProcessorNum () {
+		String processor_num = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/GetProcessorNum.sh");
+		return Integer.valueOf (processor_num.trim ());
+	}
+	
+	// 这里可能专门需要一个线程来处理这个，因为需要耗费10s左右的时间
+	public static Double AssesBenchMark (int thread_num, String password) {
+		String which_sysbench = ExecuteCommand ("which python");
+		if (which_sysbench.equals ("")) {
+			install_sys_bench (password);
+		}
+		String result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/ComputeAssesment.sh");
 		int first_comma_index = result.indexOf ("total time:");
-		int first_s_index = result.substring (first_comma_index + 1).indexOf ("s");
-		result = result.substring (first_comma_index + 1, first_s_index);
+		int first_s_index = result.indexOf ("s", first_comma_index);
+		result = result.substring (first_comma_index + 11, first_s_index);
 		result = result.trim ();
-		return 0d;
+		Double time = Double.valueOf (result);
+		String format_decimal = String.format ("%.2f", time);
+		time = Double.valueOf (format_decimal);
+		return 100 - time;
+	}
+	
+	public static void setThreshold (double _value) {
+		StartThreshold = _value;
 	}
 }
