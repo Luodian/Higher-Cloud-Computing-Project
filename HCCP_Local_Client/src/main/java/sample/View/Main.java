@@ -1,49 +1,62 @@
 package sample.View;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import sample.BackEnd.SystemPreferences;
+import sample.Control.Controller;
 
 import java.io.IOException;
 
 public class Main extends Application {
 	
 	public static Stage priStg;
-	
-	public static void main (String[] args) throws IOException {
-//		launch (args);
+
+	public static void main(String[] args) {
+		launch(args);
 //		System.out.println (SystemPreferences.fetchHostName ());
 //		System.out.println (SystemPreferences.fetchGPUInfo ());
 //		System.out.println (SystemPreferences.GetProcessorNum ());
-		System.out.println (SystemPreferences.AssesBenchMark (SystemPreferences.GetProcessorNum (), "BigCat"));
+//		System.out.println (SystemPreferences.AssesBenchMark (SystemPreferences.GetProcessorNum (), "BigCat"));
 	}
-	
+
 	@Override
-	public void start (Stage primaryStage) {
-		
+	public void start(Stage primaryStage) throws IOException {
+//		System.out.println(ClassPath.getClassPath());
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("sample.fxml"));
+		fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
+		Parent root = fxmlLoader.load();
 		Screen screen = Screen.getPrimary ();
+
+//		初始化
+		Controller controller = fxmlLoader.getController();
+		controller.init();
+
 		Rectangle2D bounds = screen.getVisualBounds ();
-		
+
 		double minX = bounds.getMinX ();
 		double minY = bounds.getMinY ();
 		double maxX = bounds.getMaxX ();
 		double maxY = bounds.getMaxY ();
-		
-		Scene scene = new Scene (new Group (), (maxX - minX) * 0.6, (maxY - minY) * 0.6);
+
+		Scene scene = new Scene(root, (maxX - minX) * 0.6, (maxY - minY) * 0.6);
+
 		primaryStage.setTitle ("Higher Compute Platform");
 		primaryStage.setScene (scene);
 		primaryStage.show ();
 		priStg = primaryStage;
+
 //        primaryStage.setTitle("Transitions and Timeline Animation");
-//        final Scene scene = new Scene(new Group(), 1920, 1080);
+//        final Scene scene = new Scene(new Group(), (maxX - minX) * 0.6, (maxY - minY) * 0.6);
 //        scene.setFill(Color.WHITE);
 
 //
-//        final Rectangle rectPath = new Rectangle (0, 0, 40, 40);
+//        final Rectangle rectPath = new Rectangle(0, 0, 40, 40);
 //        rectPath.setArcHeight(10);
 //        rectPath.setArcWidth(10);
 //        rectPath.setFill(Color.ORANGE);
@@ -51,7 +64,7 @@ public class Main extends Application {
 //        final Timeline timeline = new Timeline();
 //        timeline.setCycleCount(Timeline.INDEFINITE);
 //        timeline.play();
-//
+
 //        Path path = new Path();
 //        path.getElements().add(new MoveTo(20,20));
 ////        path.getElements().add(new CubicCurveTo(1800, 0, 1800, 120, 1000, 920));
@@ -66,12 +79,12 @@ public class Main extends Application {
 //        pathTransition.setAutoReverse(true);
 //        pathTransition.play();
 //
-
+//
 //        Rectangle ownNode = new Rectangle(scene.getWidth()*0.5,scene.getHeight()*0.5, 40, 40);
 //        ownNode.setFill(Color.FIREBRICK);
 //        ownNode.setArcHeight(10);
 //        ownNode.setArcWidth(10);
-//
+
 //        int nodeNUm = 10;
 //        List<Double> nodeDirec = new ArrayList<>();
 //        double meanDigree = 2 * Math.PI / nodeNUm;
@@ -103,7 +116,7 @@ public class Main extends Application {
 //
 //        }
 //        ((Group)scene.getRoot()).getChildren().addAll(ownNode);
-//        Scene stageScene = new Scene(new Group(),1920,1080);
+////        Scene stageScene = new Scene(new Group(),(maxX - minX) * 0.6, (maxY - minY) * 0.6);
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
 	}
