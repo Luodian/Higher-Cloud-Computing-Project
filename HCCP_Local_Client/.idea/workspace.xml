@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="界面基本完成，网络连接待补全">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/fluent_hc_4_5_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Resources/wdhpor.png" />
-      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/HCCP_Local_Client.iml" afterPath="$PROJECT_DIR$/HCCP_Local_Client.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/ClientInfo.java" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/ClientInfo.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/ServerUtil.java" afterPath="$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/ServerUtil.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/Control/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/sample/Control/Controller.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/View/Login.css" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" afterPath="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/View/sample.fxml" afterPath="$PROJECT_DIR$/target/classes/sample/View/sample.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/Control/Login.css" afterPath="" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,8 +74,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1350">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="638">
+              <caret line="29" column="9" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="29" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,18 +86,10 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/Control/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="329" column="69" lean-forward="true" selection-start-line="329" selection-start-column="69" selection-end-line="329" selection-end-column="69" />
+            <state relative-caret-position="66">
+              <caret line="235" column="5" lean-forward="true" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3417#3663#0" expanded="true" />
-                <element signature="e#3662#3663#0" expanded="true" />
-                <element signature="e#4205#4349#0" expanded="true" />
-                <element signature="e#4348#4349#0" expanded="true" />
-                <element signature="e#4377#4507#0" expanded="true" />
-                <element signature="e#4506#4507#0" expanded="true" />
-                <element signature="e#15193#15349#0" expanded="true" />
-                <element signature="e#15348#15349#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +108,8 @@
       <file leaf-file-name="MasterToServerUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/MasterToServerUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-350">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="176">
+              <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -129,11 +118,32 @@
       <file leaf-file-name="ServerUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/ServerUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="463" column="0" lean-forward="true" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2649#2664#0" expanded="true" />
+                <element signature="e#3890#3905#0" expanded="true" />
+                <element signature="e#6217#6229#0" expanded="true" />
+                <element signature="e#7482#7497#0" expanded="true" />
+                <element signature="e#9809#9824#0" expanded="true" />
+                <element signature="e#12614#12629#0" expanded="true" />
+                <element signature="e#14373#14388#0" expanded="true" />
+                <element signature="e#15863#15875#0" expanded="true" />
+                <element signature="e#17585#17600#0" expanded="true" />
+                <element signature="e#20665#20680#0" expanded="true" />
+                <element signature="e#21445#21460#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/ClientInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,32 +160,22 @@
       </file>
       <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/target/classes/sample/View/sample.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
+            <state relative-caret-position="814">
               <caret line="37" column="73" lean-forward="false" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Login.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/target/classes/sample/View/Login.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/classes/sample/View/base.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+            <state relative-caret-position="836">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -193,36 +193,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>settings</find>
-      <find>new Ev</find>
-      <find>add</find>
-      <find>HBo</find>
-      <find>取消</find>
-      <find>control</find>
-      <find>login</find>
-      <find>init</find>
-      <find>center_im</find>
-      <find>下线</find>
-      <find>center_</find>
-      <find>init()</find>
-      <find>right</find>
-      <find>wd</find>
-      <find>logi</find>
-      <find>dlep</find>
-      <find>handlePortrait</find>
-      <find>handlepor</find>
-      <find>handleLoginBtn</find>
-      <find>por</find>
-      <find>infos</find>
-      <find>getwi</find>
-      <find>d</find>
-      <find>getwidth</find>
       <find>code</find>
       <find>alert</find>
-      <find>css</find>
       <find>alery</find>
       <find>handle</find>
       <find>handlepo</find>
+      <find>PK</find>
+      <find>css</find>
+      <find>PK_SEND</find>
+      <find>machine_id</find>
+      <find>port1</find>
+      <find>user_id</find>
+      <find>fail</find>
+      <find>getin</find>
+      <find>get</find>
+      <find>machine_in</find>
+      <find>task_id</find>
+      <find>邮箱</find>
+      <find>por</find>
+      <find>String.val</find>
+      <find>getIn</find>
+      <find>lau</find>
+      <find>png</find>
+      <find>file</find>
+      <find>注册</find>
+      <find>验证</find>
+      <find>验</find>
+      <find>machine_info</find>
+      <find>public key</find>
+      <find>upload</find>
+      <find>img</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -233,6 +233,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="PracNeyman &lt;1799022371@qq.com&gt;" />
         <option value="Pra" />
         <option value="Luodian &lt;drluodian@gmail.com&gt;" />
       </list>
@@ -240,6 +241,9 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="SIGN_OFF_COMMIT" value="true" />
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="wudehao" repo="$PROJECT_DIR$/.." source="master" />
+    </push-targets>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -286,11 +290,13 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/ServerUtils/SlaveToServerUtil.java" />
         <option value="$PROJECT_DIR$/target/classes/sample/View/Regi.css" />
         <option value="$PROJECT_DIR$/target/classes/sample/View/main.css" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
         <option value="$PROJECT_DIR$/target/classes/sample/View/settings.css" />
         <option value="$PROJECT_DIR$/target/classes/sample/View/base.css" />
         <option value="$PROJECT_DIR$/target/classes/sample/View/sample.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Control/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/ClientInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/View/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/ServerUtil.java" />
       </list>
     </option>
   </component>
@@ -313,6 +319,28 @@
     <option name="y" value="32" />
     <option name="width" value="927" />
     <option name="height" value="1048" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>IgnoreResultOfCall</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -337,6 +365,8 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -456,8 +486,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -809,7 +837,10 @@
       <workItem from="1514646092500" duration="683000" />
       <workItem from="1514688484096" duration="16913000" />
       <workItem from="1514786842418" duration="7307000" />
-      <workItem from="1514794590455" duration="12663000" />
+      <workItem from="1514794590455" duration="22792000" />
+      <workItem from="1514821523151" duration="1359000" />
+      <workItem from="1514856595804" duration="4401000" />
+      <workItem from="1514889985768" duration="3239000" />
     </task>
     <task id="LOCAL-00001" summary="增加了查看配置文件的接口">
       <created>1514634076947</created>
@@ -860,11 +891,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514721506008</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="界面基本完成，网络连接待补全">
+      <created>1514809160248</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1514809160248</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45416000" />
+    <option name="totallyTimeSpent" value="64544000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="993" y="32" width="1853" height="1048" extended-state="6" />
@@ -883,8 +921,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20075554" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25040475" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -907,7 +946,6 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -957,7 +995,8 @@
     <MESSAGE value="mvn supported" />
     <MESSAGE value="SystemPreferences里面包含了电脑各项基础信息的获取以及算力等评测的工具" />
     <MESSAGE value="用于SSH的包SSH以及用于与服务器交互的包ServerUtils,待完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="用于SSH的包SSH以及用于与服务器交互的包ServerUtils,待完善" />
+    <MESSAGE value="界面基本完成，网络连接待补全" />
+    <option name="LAST_COMMIT_MESSAGE" value="界面基本完成，网络连接待补全" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1008,7 +1047,7 @@
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="50" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1017,17 +1056,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/BackEnd/Shell/meminfo.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/SSHCommandExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/Shell/cpuinfo.txt" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1150,7 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,23 +1185,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/sample/View/settings.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/sample/View/settings.css" />
     <entry file="file://$PROJECT_DIR$/target/classes/sample/View/base.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,49 +1200,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/sample/View/Login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="836">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Resources/46.jpg">
       <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1350">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/sample/View/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="37" column="73" lean-forward="false" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
@@ -1236,21 +1224,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Control/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/HostSSHHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="329" column="69" lean-forward="true" selection-start-line="329" selection-start-column="69" selection-end-line="329" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3417#3663#0" expanded="true" />
-            <element signature="e#3662#3663#0" expanded="true" />
-            <element signature="e#4205#4349#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-            <element signature="e#4377#4507#0" expanded="true" />
-            <element signature="e#4506#4507#0" expanded="true" />
-            <element signature="e#15193#15349#0" expanded="true" />
-            <element signature="e#15348#15349#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-286">
+          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/sample/View/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" column="73" lean-forward="false" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Dependency/httpcore-4.4.7.jar!/org/apache/http/HttpStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1262,20 +1265,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/MasterToServerUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/SlaveToServerUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-350">
+        <state relative-caret-position="88">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/ServerUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/MasterToServerUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="176">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/JavaSSH/ClientInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/View/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="29" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/java/jdk1.8.0_152/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1579">
+          <caret line="314" column="46" lean-forward="true" selection-start-line="314" selection-start-column="46" selection-end-line="314" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Control/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="235" column="5" lean-forward="true" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/BackEnd/ServerUtils/ServerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="463" column="0" lean-forward="true" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2649#2664#0" expanded="true" />
+            <element signature="e#3890#3905#0" expanded="true" />
+            <element signature="e#6217#6229#0" expanded="true" />
+            <element signature="e#7482#7497#0" expanded="true" />
+            <element signature="e#9809#9824#0" expanded="true" />
+            <element signature="e#12614#12629#0" expanded="true" />
+            <element signature="e#14373#14388#0" expanded="true" />
+            <element signature="e#15863#15875#0" expanded="true" />
+            <element signature="e#17585#17600#0" expanded="true" />
+            <element signature="e#20665#20680#0" expanded="true" />
+            <element signature="e#21445#21460#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -19,6 +19,7 @@ import javafx.scene.shape.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sample.BackEnd.ServerUtils.ServerUtil;
 import sample.View.Main;
 
 import java.io.File;
@@ -242,6 +243,14 @@ public class Controller {
 					"*.*");
 			fileChooser.getExtensionFilters().add(filter);
 			File file = fileChooser.showOpenDialog(Main.priStg);
+            String path = file.toString();
+            System.out.println("path:" + path);
+            try {
+                String rs = ServerUtil.ImgUpload(26, path);
+                System.out.println(rs);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 		} else {
 			alertWhenNotLogin();
 		}
@@ -408,16 +417,11 @@ public class Controller {
 		userName.setPrefWidth(200);
 
 		Label emailLabel = new Label("邮箱");
-		TextField email = new TextField();
+        final TextField email = new TextField();
 		emailLabel.setPrefWidth(200);
 
 		Button sendValiCode = new Button("发送验证码");
-		sendValiCode.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-//				命令服务器向所填地址发送验证码
-			}
-		});
+
 
 		Label pswLabel = new Label("密码");
 		PasswordField psw = new PasswordField();
@@ -437,10 +441,33 @@ public class Controller {
 		regiRs.setId("regi_rs");
 		regiRs.setVisible(false);
 
+        sendValiCode.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+//				命令服务器向所填地址发送验证码
+                try {
+                    String veriEmail = ServerUtil.check_email_exist(email.getText());
+                    if (veriEmail.equals("SUCCESS")) {
+//						说明已经被注册了
+                        regiRs.setText("该邮箱已被使用");
+                        regiRs.setVisible(true);
+                    } else if (veriEmail.equals("FAIL")) {
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 		ensureRegiBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 //				向服务器发送注册请求，以及个人信息
+//				String
+
+
+
 				regiRs.setText("注册失败");
 				regiRs.setVisible(true);
 			}
@@ -468,7 +495,7 @@ public class Controller {
 
 		loginPane.add(hBox, 1, 8, 3, 1);
 
-		loginPane.add(regiRs, 1, 9, 3, 1);
+        loginPane.add(regiRs, 4, 8, 3, 1);
 		Scene scene = new Scene(loginPane, 800, 500);
 		scene.getStylesheets().add(Main.class.getResource("Regi.css").toExternalForm());
 		loginStage.setScene (scene);

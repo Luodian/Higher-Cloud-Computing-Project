@@ -17,7 +17,14 @@ public class Main extends Application {
 	public static Stage priStg;
 
 	public static void main(String[] args) {
+
 		launch(args);
+//		try {
+//			String rs = (String) ServerUtil.get_machine_info_with_task(String.valueOf(2));
+//			System.out.println(rs);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 //		System.out.println (SystemPreferences.fetchHostName ());
 //		System.out.println (SystemPreferences.fetchGPUInfo ());
 //		System.out.println (SystemPreferences.GetProcessorNum ());

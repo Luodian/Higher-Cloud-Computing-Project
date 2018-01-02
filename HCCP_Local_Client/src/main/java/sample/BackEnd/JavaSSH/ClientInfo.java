@@ -11,8 +11,12 @@ public class ClientInfo {
     public String nickname;
     public String machine_user_name;
     public int compute_ability;
-    public double remain_compute_ablity;
+    public double remain_compute_ability;
     public int machine_status;
+
+    //    武德浩于2018年1月1日加上以下2个属性
+    public int user_id;
+    public int task_status;
 
     public ClientInfo() {
     }
@@ -31,7 +35,7 @@ public class ClientInfo {
         this.nickname = nickname;
         this.machine_user_name = machine_user_name;
         this.compute_ability = compute_ability;
-        this.remain_compute_ablity = remain_compute_ablity;
+        this.remain_compute_ability = remain_compute_ability;
         this.machine_status = machine_status;
     }
 }
