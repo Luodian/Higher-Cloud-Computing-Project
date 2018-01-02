@@ -1,0 +1,659 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Apache.Ignite.AspNet</name>
+    </assembly>
+    <members>
+        <member name="T:Apache.Ignite.AspNet.IgniteOutputCacheProvider">
+            <summary>
+            ASP.NET output cache provider that uses Ignite cache as a storage.
+            <para/>
+            You can either start Ignite yourself, and provide <c>gridName</c> attribute, 
+            or provide <c>igniteConfigurationSectionName</c> attribute to start Ignite automatically from specified
+            configuration section (see <see cref="T:Apache.Ignite.Core.IgniteConfigurationSection"/>) 
+            using <c>igniteConfigurationSectionName</c>.
+            <para/>
+            <c>cacheName</c> attribute specifies Ignite cache name to use for data storage. This attribute can be omitted 
+            if cache name is null.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteOutputCacheProvider._expiryCacheHolder">
+            
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteOutputCacheProvider.Get(System.String)">
+            <summary>
+            Returns a reference to the specified entry in the output cache.
+            </summary>
+            <param name="key">A unique identifier for a cached entry in the output cache.</param>
+            <returns>
+            The <paramref name="key" /> value that identifies the specified entry in the cache, or null if the specified entry is not in the cache.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteOutputCacheProvider.Add(System.String,System.Object,System.DateTime)">
+            <summary>
+            Inserts the specified entry into the output cache.
+            </summary>
+            <param name="key">A unique identifier for <paramref name="entry" />.</param>
+            <param name="entry">The content to add to the output cache.</param>
+            <param name="utcExpiry">The time and date on which the cached entry expires.</param>
+            <returns>
+            A reference to the specified provider.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteOutputCacheProvider.Set(System.String,System.Object,System.DateTime)">
+            <summary>
+            Inserts the specified entry into the output cache, overwriting the entry if it is already cached.
+            </summary>
+            <param name="key">A unique identifier for <paramref name="entry" />.</param>
+            <param name="entry">The content to add to the output cache.</param>
+            <param name="utcExpiry">The time and date on which the cached <paramref name="entry" /> expires.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteOutputCacheProvider.Remove(System.String)">
+            <summary>
+            Removes the specified entry from the output cache.
+            </summary>
+            <param name="key">The unique identifier for the entry to remove from the output cache.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteOutputCacheProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes the provider.
+            </summary>
+            <param name="name">The friendly name of the provider.</param>
+            <param name="config">A collection of the name/value pairs representing the provider-specific attributes specified in the configuration for this provider.</param>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.IgniteOutputCacheProvider.Cache">
+            <summary>
+            Gets the cache.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider">
+            <summary>
+            ASP.NET Session-State Store Provider that uses Ignite distributed cache as an underlying storage.
+            <para/>
+            You can either start Ignite yourself, and provide <c>gridName</c> attribute, 
+            or provide <c>igniteConfigurationSectionName</c> attribute to start Ignite automatically from specified
+            configuration section (see <see cref="T:Apache.Ignite.Core.IgniteConfigurationSection"/>) 
+            using <c>igniteConfigurationSectionName</c>.
+            <para/>
+            <c>cacheName</c> attribute specifies Ignite cache name to use for data storage. This attribute can be omitted 
+            if cache name is null.
+            <para/>
+            Optional <c>applicationId</c> attribute allows sharing a single Ignite cache between multiple web applications.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.DefaultCacheName">
+            <summary>
+            The default cache name to be used when <c>cacheName</c> attribute is not specified.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.ExtensionId">
+            Extension id  
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.ApplicationId">
+            Application id config parameter. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider._applicationId">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider._expiryCacheHolder">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider._lockId">
+            
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes the provider.
+            </summary>
+            <param name="name">The friendly name of the provider.</param>
+            <param name="config">A collection of the name/value pairs representing the provider-specific attributes 
+            specified in the configuration for this provider.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:System.Web.SessionState.SessionStateStoreProviderBase" /> 
+            implementation.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.SetItemExpireCallback(System.Web.SessionState.SessionStateItemExpireCallback)">
+            <summary>
+            Sets a reference to the <see cref="T:System.Web.SessionState.SessionStateItemExpireCallback" /> 
+            delegate for the Session_OnEnd event defined in the Global.asax file.
+            </summary>
+            <param name="expireCallback">The <see cref="T:System.Web.SessionState.SessionStateItemExpireCallback" />  
+            delegate for the Session_OnEnd event defined in the Global.asax file.</param>
+            <returns>
+            true if the session-state store provider supports calling the Session_OnEnd event; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.InitializeRequest(System.Web.HttpContext)">
+            <summary>
+            Called by the <see cref="T:System.Web.SessionState.SessionStateModule" /> object 
+            for per-request initialization.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.GetItem(System.Web.HttpContext,System.String,System.Boolean@,System.TimeSpan@,System.Object@,System.Web.SessionState.SessionStateActions@)">
+            <summary>
+            Returns read-only session-state data from the session data store.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The <see cref="P:System.Web.SessionState.HttpSessionState.SessionID" /> for the 
+            current request.</param>
+            <param name="locked">When this method returns, contains a Boolean value that is set to true if the 
+            requested session item is locked at the session data store; otherwise, false.</param>
+            <param name="lockAge">When this method returns, contains a <see cref="T:System.TimeSpan" /> object that 
+            is set to the amount of time that an item in the session data store has been locked.</param>
+            <param name="lockId">When this method returns, contains an object that is set to the lock identifier 
+            for the current request. For details on the lock identifier, see "Locking Session-Store Data" 
+            in the <see cref="T:System.Web.SessionState.SessionStateStoreProviderBase" /> class summary.</param>
+            <param name="actions">When this method returns, contains one of the 
+            <see cref="T:System.Web.SessionState.SessionStateActions" /> values, indicating whether the current 
+            session is an uninitialized, cookieless session.</param>
+            <returns>
+            A <see cref="T:System.Web.SessionState.SessionStateStoreData" /> populated with session values and 
+            information from the session data store.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.GetItemExclusive(System.Web.HttpContext,System.String,System.Boolean@,System.TimeSpan@,System.Object@,System.Web.SessionState.SessionStateActions@)">
+            <summary>
+            Returns read-only session-state data from the session data store.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The <see cref="P:System.Web.SessionState.HttpSessionState.SessionID" /> for the current 
+            request.</param>
+            <param name="locked">When this method returns, contains a Boolean value that is set to true if a lock 
+            is successfully obtained; otherwise, false.</param>
+            <param name="lockAge">When this method returns, contains a <see cref="T:System.TimeSpan" /> object that 
+            is set to the amount of time that an item in the session data store has been locked.</param>
+            <param name="lockId">When this method returns, contains an object that is set to the lock identifier 
+            for the current request. For details on the lock identifier, see "Locking Session-Store Data" in 
+            the <see cref="T:System.Web.SessionState.SessionStateStoreProviderBase" /> class summary.</param>
+            <param name="actions">When this method returns, contains one of the 
+            <see cref="T:System.Web.SessionState.SessionStateActions" /> values, indicating whether the current 
+            session is an uninitialized, cookieless session.</param>
+            <returns>
+            A <see cref="T:System.Web.SessionState.SessionStateStoreData" /> populated with session values 
+            and information from the session data store.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.ReleaseItemExclusive(System.Web.HttpContext,System.String,System.Object)">
+            <summary>
+            Releases a lock on an item in the session data store.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The session identifier for the current request.</param>
+            <param name="lockId">The lock identifier for the current request.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.SetAndReleaseItemExclusive(System.Web.HttpContext,System.String,System.Web.SessionState.SessionStateStoreData,System.Object,System.Boolean)">
+            <summary>
+            Updates the session-item information in the session-state data store with values from the current request, 
+            and clears the lock on the data.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The session identifier for the current request.</param>
+            <param name="item">The <see cref="T:System.Web.SessionState.SessionStateStoreData" /> object that 
+            contains the current session values to be stored.</param>
+            <param name="lockId">The lock identifier for the current request.</param>
+            <param name="newItem">true to identify the session item as a new item; false to identify the session 
+            item as an existing item.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.RemoveItem(System.Web.HttpContext,System.String,System.Object,System.Web.SessionState.SessionStateStoreData)">
+            <summary>
+            Deletes item data from the session data store.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The session identifier for the current request.</param>
+            <param name="lockId">The lock identifier for the current request.</param>
+            <param name="item">The <see cref="T:System.Web.SessionState.SessionStateStoreData" /> that represents 
+            the item to delete from the data store.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.ResetItemTimeout(System.Web.HttpContext,System.String)">
+            <summary>
+            Updates the expiration date and time of an item in the session data store.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The session identifier for the current request.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.CreateNewStoreData(System.Web.HttpContext,System.Int32)">
+            <summary>
+            Creates a new <see cref="T:System.Web.SessionState.SessionStateStoreData" /> object to be used 
+            for the current request.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="timeout">The session-state <see cref="P:System.Web.SessionState.HttpSessionState.Timeout" /> 
+            value for the new <see cref="T:System.Web.SessionState.SessionStateStoreData" />, in minutes.</param>
+            <returns>
+            A new <see cref="T:System.Web.SessionState.SessionStateStoreData" /> for the current request.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.CreateUninitializedItem(System.Web.HttpContext,System.String,System.Int32)">
+            <summary>
+            Adds a new session-state item to the data store.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+            <param name="id">The <see cref="P:System.Web.SessionState.HttpSessionState.SessionID" /> 
+            for the current request.</param>
+            <param name="timeout">The session <see cref="P:System.Web.SessionState.HttpSessionState.Timeout" /> 
+            for the current request, in minutes.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.EndRequest(System.Web.HttpContext)">
+            <summary>
+            Called by the <see cref="T:System.Web.SessionState.SessionStateModule" /> object at the end of a request.
+            </summary>
+            <param name="context">The <see cref="T:System.Web.HttpContext" /> for the current request.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.GetKey(System.String)">
+            <summary>
+            Gets the key.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.WriteLockInfo(Apache.Ignite.Core.Binary.IBinaryRawWriter,System.Int64,System.Boolean)">
+            <summary>
+            Writes the lock info.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.LockItem(System.String,System.Int64)">
+            <summary>
+            Locks the item.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.UnlockItem(System.String,System.Int64)">
+            <summary>
+            Unlocks the item.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.SetAndUnlockItem(System.String,Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData)">
+            <summary>
+            Sets and unlocks the item.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.PutItem(System.String,Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData,Apache.Ignite.Core.Cache.ICache{System.String,Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData})">
+            <summary>
+            Puts the item.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.GetItem(System.String)">
+            <summary>
+            Gets the item.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.RemoveItem(System.String)">
+            <summary>
+            Removes the item.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.OutOp(Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op,System.Action{Apache.Ignite.Core.Binary.IBinaryRawWriter},Apache.Ignite.Core.Cache.ICache{System.String,Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData})">
+            <summary>
+            Invokes the extension operation.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.OutInOp``1(Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op,System.Action{Apache.Ignite.Core.Binary.IBinaryRawWriter},System.Func{Apache.Ignite.Core.Binary.IBinaryRawReader,``0},Apache.Ignite.Core.Cache.ICache{System.String,Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData})">
+            <summary>
+            Invokes the extension operation.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Cache">
+            <summary>
+            Gets the cache.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op">
+            <summary>
+            Op codes for <see cref="M:Apache.Ignite.Core.Impl.Cache.ICacheInternal.DoOutInOpExtension``1(System.Int32,System.Int32,System.Action{Apache.Ignite.Core.Binary.IBinaryRawWriter},System.Func{Apache.Ignite.Core.Binary.IBinaryRawReader,``0})"/>.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op.Lock">
+            Lock the session data. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op.SetAndUnlock">
+            Update and unlock the session data. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op.Get">
+            Get the data without lock. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op.Put">
+            Put the data without lock. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.IgniteSessionStateStoreProvider.Op.Remove">
+            Remove the data without lock. 
+        </member>
+        <member name="T:Apache.Ignite.AspNet.IgniteWebUtils">
+            <summary>
+            Ignite web utilities.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.IgniteWebUtils.GetWebIgniteHome">
+            <summary>
+            Gets the Ignite home directory from default location in web deployment (application_root\bin).
+            Ignite can not detect home directory in a standard way because IIS uses temporary folders for dlls.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.ConfigUtil">
+            <summary>
+            Config utils.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ConfigUtil.GridName">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ConfigUtil.CacheName">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ConfigUtil.IgniteConfigurationSectionName">
+            
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.ConfigUtil.InitializeCache``2(System.Collections.Specialized.NameValueCollection,System.Type,System.String)">
+            <summary>
+            Initializes the cache from configuration.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.ConfigUtil.StartFromApplicationConfiguration(System.String,System.String)">
+            <summary>
+            Starts Ignite from application configuration.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2">
+            <summary>
+            Holds WithExpiry caches per expiration interval to avoid garbage on frequent WithExpiry calls.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2.MaxExpiryCaches">
+            Max number of cached expiry caches. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2._cache">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2._expiryCaches">
+            Cached caches per expiry seconds. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2._syncRoot">
+            Sync object. 
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2.#ctor(Apache.Ignite.Core.Cache.ICache{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2"/> class.
+            </summary>
+            <param name="cache">The cache.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2.GetCacheWithExpiry(System.DateTime)">
+            <summary>
+            Gets the cache with expiry policy according to provided expiration date.
+            </summary>
+            <param name="utcExpiry">The UTC expiry.</param>
+            <returns>Cache with expiry policy.</returns>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2.GetCacheWithExpiry(System.Int64)">
+            <summary>
+            Gets the cache with expiry.
+            </summary>
+            <param name="expiry">The expiration interval (in seconds).</param>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.ExpiryCacheHolder`2.Cache">
+            <summary>
+            Gets the cache.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData">
+            <summary>
+            Ignite <see cref="T:System.Web.SessionState.SessionStateStoreData"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.#ctor(Apache.Ignite.Core.Binary.IBinaryRawReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData"/> class.
+            </summary>
+            <param name="reader">The reader.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.#ctor(System.Web.HttpStaticObjectsCollection,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData"/> class.
+            </summary>
+            <param name="staticObjects">The static objects.</param>
+            <param name="timeout">The timeout.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.WriteBinary(Apache.Ignite.Core.Binary.IBinaryRawWriter,System.Boolean)">
+            <summary>
+            Writes this object to the given writer.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.DeserializeStaticObjects(System.Byte[])">
+            <summary>
+            Deserializes the static objects.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.SerializeStaticObjects">
+            <summary>
+            Serializes the static objects.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.LockNodeId">
+            <summary>
+            Gets or sets the lock node id. Null means not locked.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.LockId">
+            <summary>
+            Gets or sets the lock id.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateStoreData.LockTime">
+            <summary>
+            Gets or sets the lock time.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection">
+            <summary>
+            Binarizable key-value collection with dirty item tracking.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection._dict">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection._list">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection._isNew">
+            Indicates where this is a new collection, not a deserialized old one. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection._removedKeys">
+            Removed keys. Hash set because keys can be removed multiple times. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection._dirtyAll">
+            Indicates that entire collection is dirty and can't be written as a diff. 
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.#ctor(Apache.Ignite.Core.Binary.IBinaryRawReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection"/> class.
+            </summary>
+            <param name="reader">The binary reader.</param>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.CopyTo(System.Array,System.Int32)">
+            <inheritdoc /> 
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.GetEnumerator">
+            <inheritdoc /> 
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.WriteBinary(Apache.Ignite.Core.Binary.IBinaryRawWriter,System.Boolean)">
+            <summary>
+            Writes this object to the given writer.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.GetRemovedKeys">
+            <summary>
+            Gets the removed keys.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Remove(System.String)">
+            <summary>
+            Removes the specified key.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes at specified index.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.ApplyChanges(Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection)">
+            <summary>
+            Applies the changes.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.AddRemovedKey(System.String)">
+            <summary>
+            Adds the removed key.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.GetOrCreateDirtyEntry(System.String)">
+            <summary>
+            Gets or creates an entry.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.GetEntry(System.String)">
+            <summary>
+            Gets the entry.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.GetIndex(System.String)">
+            <summary>
+            Gets the index.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.SetDirtyOnRead(Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry)">
+            <summary>
+            Sets the dirty on read.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.IsImmutable(System.Type)">
+            <summary>
+            Determines whether the specified type is immutable.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Count">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.SyncRoot">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.IsSynchronized">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Item(System.String)">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Item(System.Int32)">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Keys">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Dirty">
+            <inheritdoc /> 
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry">
+            <summary>
+            Inner entry.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.IsInitial">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.Key">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.IsDirty">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry._value">
+            
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry._isDeserialized">
+            
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.#ctor(System.String,System.Boolean,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry"/> class.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.CopyTo(Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry)">
+            <summary>
+            Copies contents to another entry.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.GetBytes">
+            <summary>
+            Gets the bytes.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.Entry.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.NameObjectCollection">
+            <summary>
+            NameObjectCollectionBase.KeysCollection has internal constructor.
+            The only way to implement ISessionStateItemCollection.Keys property 
+            is to have a NameObjectCollectionBase in hand.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.NameObjectCollection.#ctor(System.Collections.IEnumerable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.IgniteSessionStateItemCollection.NameObjectCollection"/> class.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.AspNet.Impl.SessionStateLockResult">
+            <summary>
+            Result of the session state lock processor.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.SessionStateLockResult._success">
+            Success flag. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.SessionStateLockResult._data">
+            Session state data. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.SessionStateLockResult._lockTime">
+            Lock time. 
+        </member>
+        <member name="F:Apache.Ignite.AspNet.Impl.SessionStateLockResult._lockId">
+            Lock id. 
+        </member>
+        <member name="M:Apache.Ignite.AspNet.Impl.SessionStateLockResult.#ctor(Apache.Ignite.Core.Binary.IBinaryRawReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.AspNet.Impl.SessionStateLockResult"/> class.
+            </summary>
+            <param name="reader">The reader.</param>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.SessionStateLockResult.Success">
+            <summary>
+            Gets a value indicating whether lock succeeded.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.SessionStateLockResult.Data">
+            <summary>
+            Gets the data. Null when <see cref="P:Apache.Ignite.AspNet.Impl.SessionStateLockResult.Success"/> is <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.SessionStateLockResult.LockTime">
+            <summary>
+            Gets the lock time. Null when <see cref="P:Apache.Ignite.AspNet.Impl.SessionStateLockResult.Success"/> is <c>true</c>.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.AspNet.Impl.SessionStateLockResult.LockId">
+            <summary>
+            Gets the lock identifier.
+            </summary>
+        </member>
+    </members>
+</doc>

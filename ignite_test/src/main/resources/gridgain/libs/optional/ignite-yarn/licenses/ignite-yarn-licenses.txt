@@ -1,0 +1,18 @@
+// ------------------------------------------------------------------
+// List of ignite-yarn module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For Apache Hadoop Common  org.apache.hadoop:hadoop-common:jar:2.7.0
+==============================================================================
+This product bundles Apache Hadoop Common which is available under the following:
+Apache License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For hadoop-yarn-client  org.apache.hadoop:hadoop-yarn-client:jar:2.7.0
+==============================================================================
+This product bundles hadoop-yarn-client which is available under the following:
+Apache License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+

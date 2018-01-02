@@ -1,0 +1,18 @@
+// ------------------------------------------------------------------
+// List of ignite-geospatial module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For JTS Topology Suite (http://sourceforge.net/projects/jts-topo-suite) com.vividsolutions:jts:jar:1.13
+==============================================================================
+This product bundles JTS Topology Suite which is available under the following:
+Lesser General Public License (LGPL). For details, see http://www.gnu.org/copyleft/lesser.txt.
+
+==============================================================================
+For ignite-indexing (http://ignite.apache.org) org.apache.ignite:ignite-indexing:jar:2.3.1
+==============================================================================
+This product bundles ignite-indexing which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+

@@ -1,0 +1,66 @@
+// ------------------------------------------------------------------
+// List of ignite-spring module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For Spring AOP (https://github.com/spring-projects/spring-framework) org.springframework:spring-aop:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring AOP which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Spring Beans (https://github.com/spring-projects/spring-framework) org.springframework:spring-beans:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring Beans which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Spring Context (https://github.com/spring-projects/spring-framework) org.springframework:spring-context:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring Context which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Spring Core (https://github.com/spring-projects/spring-framework) org.springframework:spring-core:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring Core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Spring Expression Language (SpEL) (https://github.com/spring-projects/spring-framework) org.springframework:spring-expression:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring Expression Language (SpEL) which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Spring JDBC (https://github.com/spring-projects/spring-framework) org.springframework:spring-jdbc:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring JDBC which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Spring Transaction (https://github.com/spring-projects/spring-framework) org.springframework:spring-tx:jar:4.3.7.RELEASE
+==============================================================================
+This product bundles Spring Transaction which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Commons Logging (http://commons.apache.org/logging) commons-logging:commons-logging:jar:1.1.1
+==============================================================================
+This product bundles Commons Logging which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For ignite-core (http://ignite.apache.org) org.apache.ignite:ignite-core:jar:2.3.1
+==============================================================================
+This product bundles ignite-core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For ignite-indexing (http://ignite.apache.org) org.apache.ignite:ignite-indexing:jar:2.3.1
+==============================================================================
+This product bundles ignite-indexing which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+
