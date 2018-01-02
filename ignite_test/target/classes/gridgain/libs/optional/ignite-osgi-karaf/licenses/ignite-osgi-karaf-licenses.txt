@@ -1,0 +1,6 @@
+// ------------------------------------------------------------------
+// List of ignite-osgi-karaf module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+
+

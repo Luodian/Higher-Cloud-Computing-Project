@@ -1,0 +1,12 @@
+// ------------------------------------------------------------------
+// List of ignite-osgi-paxlogging module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For Apache Log4j (http://logging.apache.org/log4j/1.2/) log4j:log4j:bundle:1.2.17
+==============================================================================
+This product bundles Apache Log4j which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Apache.Ignite.NLog</name>
+    </assembly>
+    <members>
+        <member name="T:Apache.Ignite.NLog.IgniteNLogLogger">
+            <summary>
+            Ignite NLog integration.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.NLog.IgniteNLogLogger._logger">
+            <summary>
+            The NLog logger.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.NLog.IgniteNLogLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.NLog.IgniteNLogLogger"/> class using the
+            <see cref="M:NLog.LogManager.GetCurrentClassLogger"/> to retrieve the NLog logger.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.NLog.IgniteNLogLogger.#ctor(NLog.Logger)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.NLog.IgniteNLogLogger"/> class.
+            </summary>
+            <param name="logger">The NLog logger instance.</param>
+        </member>
+        <member name="M:Apache.Ignite.NLog.IgniteNLogLogger.Log(Apache.Ignite.Core.Log.LogLevel,System.String,System.Object[],System.IFormatProvider,System.String,System.String,System.Exception)">
+            <summary>
+            Logs the specified message.
+            </summary>
+            <param name="level">The level.</param>
+            <param name="message">The message.</param>
+            <param name="args">The arguments to format <paramref name="message"/>.
+            Can be null (formatting will not occur).</param>
+            <param name="formatProvider">The format provider. Can be null if <paramref name="args"/> is null.</param>
+            <param name="category">The logging category name.</param>
+            <param name="nativeErrorInfo">The native error information.</param>
+            <param name="ex">The exception. Can be null.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Apache.Ignite.NLog.IgniteNLogLogger.IsEnabled(Apache.Ignite.Core.Log.LogLevel)">
+            <summary>
+            Determines whether the specified log level is enabled.
+            </summary>
+            <param name="level">The level.</param>
+            <returns>
+            Value indicating whether the specified log level is enabled
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Apache.Ignite.NLog.IgniteNLogLogger.ConvertLogLevel(Apache.Ignite.Core.Log.LogLevel)">
+            <summary>
+            Converts the Ignite LogLevel to the NLog log level.
+            </summary>
+            <param name="level">The Ignite log level.</param>
+            <returns>Corresponding NLog log level.</returns>
+        </member>
+    </members>
+</doc>

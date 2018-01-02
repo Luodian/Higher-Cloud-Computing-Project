@@ -1,0 +1,36 @@
+// ------------------------------------------------------------------
+// List of ignite-cloud module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For ignite-core (http://ignite.apache.org) org.apache.ignite:ignite-core:jar:2.3.1
+==============================================================================
+This product bundles ignite-core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For allcompute (http://jclouds.apache.org/jclouds-allcompute/) org.apache.jclouds:jclouds-allcompute:jar:2.0.0
+==============================================================================
+This product bundles allcompute which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For jclouds docker API (http://jclouds.apache.org/jclouds-labs/docker/) org.apache.jclouds.labs:docker:bundle:1.9.3
+==============================================================================
+This product bundles jclouds docker API which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For jclouds Google Compute Engine provider (http://jclouds.apache.org/jclouds-labs-google/google-compute-engine/) org.apache.jclouds.labs:google-compute-engine:jar:1.9.3
+==============================================================================
+This product bundles jclouds Google Compute Engine provider which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For jclouds CloudSigma provider (http://jclouds.apache.org/cloudsigma-zrh/) org.apache.jclouds.provider:cloudsigma-zrh:bundle:1.8.0
+==============================================================================
+This product bundles jclouds CloudSigma provider which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+

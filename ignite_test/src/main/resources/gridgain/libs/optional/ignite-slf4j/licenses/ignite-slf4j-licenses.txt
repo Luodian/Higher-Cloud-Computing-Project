@@ -1,0 +1,18 @@
+// ------------------------------------------------------------------
+// List of ignite-slf4j module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For SLF4J API Module (http://www.slf4j.org) org.slf4j:slf4j-api:jar:1.7.7
+==============================================================================
+This product bundles SLF4J API Module which is available under the following:
+MIT License. For details, see http://www.opensource.org/licenses/mit-license.php.
+
+==============================================================================
+For ignite-core (http://ignite.apache.org) org.apache.ignite:ignite-core:jar:2.3.1
+==============================================================================
+This product bundles ignite-core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+

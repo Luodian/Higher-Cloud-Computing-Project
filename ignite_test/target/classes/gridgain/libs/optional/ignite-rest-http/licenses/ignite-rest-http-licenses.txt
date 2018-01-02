@@ -1,0 +1,102 @@
+// ------------------------------------------------------------------
+// List of ignite-rest-http module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For tomcat-servlet-api (http://tomcat.apache.org/) org.apache.tomcat:tomcat-servlet-api:jar:8.0.23
+==============================================================================
+This product bundles tomcat-servlet-api which is available under the following:
+Apache License, Version 2.0 and Common Development And Distribution License (CDDL) Version 1.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt and http://www.opensource.org/licenses/cddl1.txt.
+
+==============================================================================
+For Apache Log4j (http://logging.apache.org/log4j/1.2/) log4j:log4j:bundle:1.2.17
+==============================================================================
+This product bundles Apache Log4j which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Jackson-annotations (http://github.com/FasterXML/jackson) com.fasterxml.jackson.core:jackson-annotations:bundle:2.6.5
+==============================================================================
+This product bundles Jackson-annotations which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Jackson-core (https://github.com/FasterXML/jackson-core) com.fasterxml.jackson.core:jackson-core:bundle:2.6.5
+==============================================================================
+This product bundles Jackson-core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For jackson-databind (http://github.com/FasterXML/jackson) com.fasterxml.jackson.core:jackson-databind:bundle:2.6.5
+==============================================================================
+This product bundles jackson-databind which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For SLF4J API Module (http://www.slf4j.org) org.slf4j:slf4j-api:jar:1.7.7
+==============================================================================
+This product bundles SLF4J API Module which is available under the following:
+MIT License. For details, see http://www.opensource.org/licenses/mit-license.php.
+
+==============================================================================
+For SLF4J LOG4J-12 Binding (http://www.slf4j.org) org.slf4j:slf4j-log4j12:jar:1.7.7
+==============================================================================
+This product bundles SLF4J LOG4J-12 Binding which is available under the following:
+MIT License. For details, see http://www.opensource.org/licenses/mit-license.php.
+
+==============================================================================
+For Commons Lang (http://commons.apache.org/lang/) commons-lang:commons-lang:jar:2.6
+==============================================================================
+This product bundles Commons Lang which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For ignite-core (http://ignite.apache.org) org.apache.ignite:ignite-core:jar:2.3.1
+==============================================================================
+This product bundles ignite-core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Jetty :: Continuation (http://www.eclipse.org/jetty) org.eclipse.jetty:jetty-continuation:jar:9.2.11.v20150529
+==============================================================================
+This product bundles Jetty :: Continuation which is available under the following:
+Apache Software License - Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.
+Eclipse Public License - Version 1.0. For details, see http://www.eclipse.org/org/documents/epl-v10.php.
+
+==============================================================================
+For Jetty :: Http Utility (http://www.eclipse.org/jetty) org.eclipse.jetty:jetty-http:jar:9.2.11.v20150529
+==============================================================================
+This product bundles Jetty :: Http Utility which is available under the following:
+Apache Software License - Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.
+Eclipse Public License - Version 1.0. For details, see http://www.eclipse.org/org/documents/epl-v10.php.
+
+==============================================================================
+For Jetty :: IO Utility (http://www.eclipse.org/jetty) org.eclipse.jetty:jetty-io:jar:9.2.11.v20150529
+==============================================================================
+This product bundles Jetty :: IO Utility which is available under the following:
+Apache Software License - Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.
+Eclipse Public License - Version 1.0. For details, see http://www.eclipse.org/org/documents/epl-v10.php.
+
+==============================================================================
+For Jetty :: Server Core (http://www.eclipse.org/jetty) org.eclipse.jetty:jetty-server:jar:9.2.11.v20150529
+==============================================================================
+This product bundles Jetty :: Server Core which is available under the following:
+Apache Software License - Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.
+Eclipse Public License - Version 1.0. For details, see http://www.eclipse.org/org/documents/epl-v10.php.
+
+==============================================================================
+For Jetty :: Utilities (http://www.eclipse.org/jetty) org.eclipse.jetty:jetty-util:jar:9.2.11.v20150529
+==============================================================================
+This product bundles Jetty :: Utilities which is available under the following:
+Apache Software License - Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.
+Eclipse Public License - Version 1.0. For details, see http://www.eclipse.org/org/documents/epl-v10.php.
+
+==============================================================================
+For Jetty :: XML utilities (http://www.eclipse.org/jetty) org.eclipse.jetty:jetty-xml:jar:9.2.11.v20150529
+==============================================================================
+This product bundles Jetty :: XML utilities which is available under the following:
+Apache Software License - Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.
+Eclipse Public License - Version 1.0. For details, see http://www.eclipse.org/org/documents/epl-v10.php.
+
+
+
