@@ -1,0 +1,24 @@
+// ------------------------------------------------------------------
+// List of ignite-gce module's dependencies provided as a part of this distribution.
+// ------------------------------------------------------------------
+
+==============================================================================
+For Google APIs Client Library for Java (https://github.com/google/google-api-java-client/google-api-client) com.google.api-client:google-api-client:jar:1.22.0
+==============================================================================
+This product bundles Google APIs Client Library for Java which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For Cloud Storage JSON API v1-rev92-1.22.0 (http://nexus.sonatype.org/oss-repository-hosting.html/google-api-services-storage) com.google.apis:google-api-services-storage:jar:v1-rev92-1.22.0
+==============================================================================
+This product bundles Cloud Storage JSON API v1-rev92-1.22.0 which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+==============================================================================
+For ignite-core (http://ignite.apache.org) org.apache.ignite:ignite-core:jar:2.3.1
+==============================================================================
+This product bundles ignite-core which is available under the following:
+The Apache Software License, Version 2.0. For details, see http://www.apache.org/licenses/LICENSE-2.0.txt.
+
+
+

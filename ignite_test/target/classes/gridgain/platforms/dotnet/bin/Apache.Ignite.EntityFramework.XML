@@ -1,0 +1,932 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Apache.Ignite.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:Apache.Ignite.EntityFramework.DbCachingMode">
+            <summary>
+            Represents a second-level caching strategy.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.DbCachingMode.ReadOnly">
+            <summary>
+            Read-only mode, never invalidates.
+            <para />
+            Database updates are ignored in this mode. Once query results have been cached, they are kept in cache 
+            until expired (forever when no expiration is specified).
+            <para />
+            This mode is suitable for data that is not expected to change 
+            (like a list of countries and other dictionary data).
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.DbCachingMode.ReadWrite">
+            <summary>
+            Read-write mode. Cached data is invalidated when underlying entity set changes.
+            <para/>
+            This is "normal" cache mode which always provides correct query results.
+            <para/>
+            Keep in mind that this mode works correctly only when all database changes are performed 
+            via <see cref="T:System.Data.Entity.DbContext"/> with Ignite caching configured. Other database updates are not tracked.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.DbQueryInfo">
+            <summary>
+            Query info.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.DbQueryInfo._affectedEntitySets">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.DbQueryInfo._commandText">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.DbQueryInfo._parameters">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.DbQueryInfo.#ctor(System.Collections.Generic.ICollection{System.Data.Entity.Core.Metadata.Edm.EntitySetBase},System.String,System.Data.Common.DbParameterCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.DbQueryInfo"/> class.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.DbQueryInfo.AffectedEntitySets">
+            <summary>
+            Gets the affected entity sets.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.DbQueryInfo.CommandText">
+            <summary>
+            Gets the command text.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.DbQueryInfo.Parameters">
+            <summary>
+            Gets the parameters.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.IDbCachingPolicy">
+            <summary>
+            Caching policy: defines which queries should be cached.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IDbCachingPolicy.CanBeCached(Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Determines whether the specified query can be cached.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <returns>
+              <c>true</c> if the specified query can be cached; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IDbCachingPolicy.CanBeCached(Apache.Ignite.EntityFramework.DbQueryInfo,System.Int32)">
+            <summary>
+            Determines whether specified number of rows should be cached.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <param name="rowCount">The count of fetched rows.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IDbCachingPolicy.GetExpirationTimeout(Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Gets the absolute expiration timeout for a given query.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <returns>Expiration timeout. <see cref="F:System.TimeSpan.MaxValue"/> for no expiration.</returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IDbCachingPolicy.GetCachingMode(Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Gets the caching strategy for a give query.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <returns>Caching strategy for the query.</returns>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader">
+            <summary>
+            Reads the data from array.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader._data">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader._schema">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader._pos">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader._closed">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.#ctor(System.Object[][],Apache.Ignite.EntityFramework.Impl.DataReaderField[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="schema">The schema.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.Close">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetSchemaTable">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.NextResult">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.Read">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetBoolean(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetByte(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetChar(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetGuid(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetInt16(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetInt32(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetInt64(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetDateTime(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetString(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetValue(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetValues(System.Object[])">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.IsDBNull(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetDecimal(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetDouble(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetFloat(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetName(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetOrdinal(System.String)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetDataTypeName(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetFieldType(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetEnumerator">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.GetRow">
+            <summary>
+            Gets the row.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.Depth">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.IsClosed">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.RecordsAffected">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.FieldCount">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.Item(System.Int32)">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.Item(System.String)">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.ArrayDbDataReader.HasRows">
+            <inheritDoc /> 
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DataReaderResult">
+            <summary>
+            Cacheable result of a DbDataReader.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DataReaderResult._data">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DataReaderResult._schema">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DataReaderResult.#ctor(System.Data.IDataReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DataReaderResult"/> class.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DataReaderResult.CreateReader">
+            <summary>
+            Creates the reader over this instance.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DataReaderResult.ReadAll(System.Data.IDataReader)">
+            <summary>
+            Reads all data from the reader.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DataReaderResult.RowCount">
+            <summary>
+            Gets the row count.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbCacheKey">
+            <summary>
+            Represents a cache key, including dependent entity sets and their versions.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCacheKey._key">
+            Original string key. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCacheKey._entitySets">
+            Ordered entity sets. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCacheKey._entitySetVersions">
+            Entity set versions. 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCacheKey.#ctor(System.String,System.Collections.Generic.ICollection{System.Data.Entity.Core.Metadata.Edm.EntitySetBase},System.Collections.Generic.IDictionary{System.String,System.Int64})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbCacheKey"/> class.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCacheKey.Key">
+            <summary>
+            Gets the key.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCacheKey.EntitySets">
+            <summary>
+            Gets the entity sets.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCacheKey.EntitySetVersions">
+            <summary>
+            Gets the entity set versions.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandDefinitionProxy._definition">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandDefinitionProxy._info">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandDefinitionProxy.#ctor(System.Data.Entity.Core.Common.DbCommandDefinition,Apache.Ignite.EntityFramework.Impl.DbCommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbCommandDefinitionProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandDefinitionProxy.CreateCommand">
+            <inheritDoc /> 
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbCommandInfo">
+            <summary>
+            Command info.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo._isModification">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo._cache">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo._affectedEntitySets">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo._policy">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo._txHandler">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.#ctor(System.Data.Entity.Core.Common.CommandTrees.DbCommandTree,Apache.Ignite.EntityFramework.Impl.DbCache,Apache.Ignite.EntityFramework.IDbCachingPolicy,Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbCommandInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.GetAffectedEntitySets(System.Data.Entity.Core.Common.CommandTrees.DbExpression)">
+            <summary>
+            Gets the affected entity sets.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.IsModification">
+            <summary>
+            Gets a value indicating whether this command is a query and does not modify data.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.Cache">
+            <summary>
+            Gets or sets the cache.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.AffectedEntitySets">
+            <summary>
+            Gets the affected entity sets.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.Policy">
+            <summary>
+            Gets the policy.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.TxHandler">
+            <summary>
+            Gets the tx handler.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.ScanExpressionVisitor">
+            <summary>
+            Visits Scan expressions and collects entity set names.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.ScanExpressionVisitor._entitySets">
+            Unique and sorted entity sets. 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.ScanExpressionVisitor.Visit(System.Data.Entity.Core.Common.CommandTrees.DbScanExpression)">
+            <inheritdoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.ScanExpressionVisitor.EntitySets">
+            <summary>
+            Gets the entity sets.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.EntitySetComparer">
+            <summary>
+            Compares entity sets by name.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.EntitySetComparer.Instance">
+            Default instance. 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandInfo.EntitySetComparer.Compare(System.Data.Entity.Core.Metadata.Edm.EntitySetBase,System.Data.Entity.Core.Metadata.Edm.EntitySetBase)">
+            <inheritdoc /> 
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbCommandProxy">
+            <summary>
+            Command proxy.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandProxy._command">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCommandProxy._commandInfo">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.#ctor(System.Data.Common.DbCommand,Apache.Ignite.EntityFramework.Impl.DbCommandInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbCommandProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.Prepare">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.Cancel">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.CreateDbParameter">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.ExecuteDbDataReader(System.Data.CommandBehavior)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.InvalidateCache">
+            <summary>
+            Invalidates the cache.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.ExecuteNonQuery">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.ExecuteScalar">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.PutResultToCache(Apache.Ignite.EntityFramework.Impl.DbCacheKey,System.Object,Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Puts the result to cache.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.GetKey">
+            <summary>
+            Gets the cache key.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.GetQueryInfo">
+            <summary>
+            Gets the query information.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.InnerCommand">
+            <summary>
+            Gets the inner command.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.CommandInfo">
+            <summary>
+            Gets the command information.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.CommandText">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.CommandTimeout">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.CommandType">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.UpdatedRowSource">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.DbConnection">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.DbParameterCollection">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.DbTransaction">
+            <inheritDoc /> 
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DbCommandProxy.DesignTimeVisible">
+            <inheritDoc /> 
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy">
+            <summary>
+            DbProviderServices proxy which substitutes custom commands.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.DefaultPolicy">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy._policy">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy._services">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy._cache">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy._txHandler">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.#ctor(System.Data.Entity.Core.Common.DbProviderServices,Apache.Ignite.EntityFramework.IDbCachingPolicy,Apache.Ignite.EntityFramework.Impl.DbCache,Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy"/> class.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="policy">The policy.</param>
+            <param name="cache">The cache.</param>
+            <param name="txHandler">Transaction handler.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.CreateCommandDefinition(System.Data.Common.DbCommand)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.CreateDbCommandDefinition(System.Data.Entity.Core.Common.DbProviderManifest,System.Data.Entity.Core.Common.CommandTrees.DbCommandTree)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.GetDbProviderManifestToken(System.Data.Common.DbConnection)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.GetDbProviderManifest(System.String)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.RegisterInfoMessageHandler(System.Data.Common.DbConnection,System.Action{System.String})">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.GetDbSpatialDataReader(System.Data.Common.DbDataReader,System.String)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.DbGetSpatialServices(System.String)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.DbCreateDatabaseScript(System.String,System.Data.Entity.Core.Metadata.Edm.StoreItemCollection)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.DbCreateDatabase(System.Data.Common.DbConnection,System.Nullable{System.Int32},System.Data.Entity.Core.Metadata.Edm.StoreItemCollection)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.DbDatabaseExists(System.Data.Common.DbConnection,System.Nullable{System.Int32},System.Data.Entity.Core.Metadata.Edm.StoreItemCollection)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.DbDeleteDatabase(System.Data.Common.DbConnection,System.Nullable{System.Int32},System.Data.Entity.Core.Metadata.Edm.StoreItemCollection)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.GetService(System.Type,System.Object)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbProviderServicesProxy.GetServices(System.Type,System.Object)">
+            <inheritDoc /> 
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DataReaderField">
+            <summary>
+            Represents a data reader field.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DataReaderField._name">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DataReaderField._fieldType">
+            
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DataReaderField._dataType">
+            
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DataReaderField.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DataReaderField"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="fieldType">The type.</param>
+            <param name="dataType">Type of the data.</param>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DataReaderField.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DataReaderField.FieldType">
+            <summary>
+            Gets the type of the field.
+            </summary>
+        </member>
+        <member name="P:Apache.Ignite.EntityFramework.Impl.DataReaderField.DataType">
+            <summary>
+            Gets the type of the data.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.DbCachingPolicy">
+            <summary>
+            Default caching policy implementation: everything is cached with <see cref="F:Apache.Ignite.EntityFramework.DbCachingMode.ReadWrite"/>, 
+            no expiration.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.DbCachingPolicy.CanBeCached(Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Determines whether the specified query can be cached.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <returns>
+              <c>true</c> if the specified query can be cached; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.DbCachingPolicy.CanBeCached(Apache.Ignite.EntityFramework.DbQueryInfo,System.Int32)">
+            <summary>
+            Determines whether specified number of rows should be cached.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <param name="rowCount">The count of fetched rows.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.DbCachingPolicy.GetExpirationTimeout(Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Gets the absolute expiration timeout for a given query.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <returns>Expiration timeout. <see cref="F:System.TimeSpan.MaxValue"/> for no expiration.</returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.DbCachingPolicy.GetCachingMode(Apache.Ignite.EntityFramework.DbQueryInfo)">
+            <summary>
+            Gets the caching strategy for a give query.
+            </summary>
+            <param name="queryInfo">The query information.</param>
+            <returns>Caching strategy for the query.</returns>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration">
+            <summary>
+            <see cref="T:System.Data.Entity.DbConfiguration"/> implementation that uses Ignite as a second-level cache 
+            for Entity Framework queries.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.ConfigurationSectionName">
+            <summary>
+            The configuration section name to be used when starting Ignite.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.DefaultCacheNamePrefix">
+            <summary>
+            The default cache name to be used for cached EF data.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.MetaCacheSuffix">
+            <summary>
+            Suffix for the meta cache name.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.DataCacheSuffix">
+            <summary>
+            Suffix for the data cache name.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.AddInterceptorMethodInfo">
+            <summary>
+            DbConfiguration.AddInterceptor method.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.AddInterceptorDelegate">
+            <summary>
+            DbConfiguration.AddInterceptor delegate.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/> class.
+            <para/>
+            This constructor uses default Ignite instance (with null <see cref="P:Apache.Ignite.Core.IgniteConfiguration.IgniteInstanceName"/>) 
+            and a cache with <see cref="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.DefaultCacheNamePrefix"/> name.
+            <para/>
+            Ignite instance will be started automatically, if it is not started yet.
+            <para/> 
+            <see cref="T:Apache.Ignite.Core.IgniteConfigurationSection"/> with name 
+            <see cref="F:Apache.Ignite.EntityFramework.IgniteDbConfiguration.ConfigurationSectionName"/> will be picked up when starting Ignite, if present.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.#ctor(System.String,System.String,Apache.Ignite.EntityFramework.IDbCachingPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/> class.
+            </summary>
+            <param name="configurationSectionName">Name of the configuration section.</param>
+            <param name="cacheNamePrefix">The cache name prefix for Data and Metadata caches.</param>
+            <param name="policy">The caching policy. Null for default <see cref="T:Apache.Ignite.EntityFramework.DbCachingPolicy"/>.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.#ctor(System.String,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.EntityFramework.IDbCachingPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/> class.
+            </summary>
+            <param name="configurationSectionName">Name of the configuration section.</param>
+            <param name="metaCacheConfiguration">
+            Configuration of the metadata cache which holds entity set information. Null for default configuration.
+            <para/>
+            This cache holds small amount of data, but should not lose entries. At least one backup recommended.
+            </param>
+            <param name="dataCacheConfiguration">
+            Configuration of the data cache which holds query results. Null for default configuration.
+            <para/>
+            This cache tolerates lost data and can have no backups.
+            </param>
+            <param name="policy">The caching policy. Null for default <see cref="T:Apache.Ignite.EntityFramework.DbCachingPolicy"/>.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.#ctor(Apache.Ignite.Core.IgniteConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.EntityFramework.IDbCachingPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/> class.
+            </summary>
+            <param name="igniteConfiguration">The ignite configuration to use for starting Ignite instance.</param>
+            <param name="metaCacheConfiguration">
+            Configuration of the metadata cache which holds entity set information. Null for default configuration. 
+            <para/>
+            This cache holds small amount of data, but should not lose entries. At least one backup recommended.
+            </param>
+            <param name="dataCacheConfiguration">
+            Configuration of the data cache which holds query results. Null for default configuration.
+            <para/>
+            This cache tolerates lost data and can have no backups.
+            </param>
+            <param name="policy">The caching policy. Null for default <see cref="T:Apache.Ignite.EntityFramework.DbCachingPolicy"/>.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.#ctor(Apache.Ignite.Core.IIgnite,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.EntityFramework.IDbCachingPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/> class.
+            </summary>
+            <param name="ignite">The ignite instance to use.</param>
+            <param name="metaCacheConfiguration">
+            Configuration of the metadata cache which holds entity set information. Null for default configuration. 
+            <para/>
+            This cache holds small amount of data, but should not lose entries. At least one backup recommended.
+            </param>
+            <param name="dataCacheConfiguration">
+            Configuration of the data cache which holds query results. Null for default configuration.
+            <para/>
+            This cache tolerates lost data and can have no backups.
+            </param>
+            <param name="policy">The caching policy. Null for default <see cref="T:Apache.Ignite.EntityFramework.DbCachingPolicy"/>.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.InitializeIgniteCaching(System.Data.Entity.DbConfiguration,Apache.Ignite.Core.IIgnite,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.EntityFramework.IDbCachingPolicy)">
+            <summary>
+            Initializes Ignite caching for specified <see cref="T:System.Data.Entity.DbConfiguration"/>.
+            This method should be used when it is not possible to use or inherit <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/>.
+            </summary>
+            <param name="dbConfiguration"><see cref="T:System.Data.Entity.DbConfiguration"/> instance to be initialized
+            for Ignite caching.</param>
+            <param name="ignite">The ignite instance to use.</param>
+            <param name="metaCacheConfiguration">
+            Configuration of the metadata cache which holds entity set information. Null for default configuration. 
+            <para/>
+            This cache holds small amount of data, but should not lose entries. At least one backup recommended.
+            </param>
+            <param name="dataCacheConfiguration">
+            Configuration of the data cache which holds query results. Null for default configuration.
+            <para/>
+            This cache tolerates lost data and can have no backups.
+            </param>
+            <param name="policy">The caching policy. Null for default <see cref="T:Apache.Ignite.EntityFramework.DbCachingPolicy"/>.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.InitializeIgniteCachingInternal(System.Data.Entity.DbConfiguration,Apache.Ignite.Core.IIgnite,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.EntityFramework.IDbCachingPolicy)">
+            <summary>
+            Initializes Ignite caching for specified <see cref="T:System.Data.Entity.DbConfiguration"/>.
+            This method should be used when it is not possible to use or inherit <see cref="T:Apache.Ignite.EntityFramework.IgniteDbConfiguration"/>.
+            </summary>
+            <param name="dbConfiguration"><see cref="T:System.Data.Entity.DbConfiguration"/> instance to be initialized
+            for Ignite caching.</param>
+            <param name="ignite">The ignite instance to use.</param>
+            <param name="metaCacheConfiguration">
+            Configuration of the metadata cache which holds entity set information. Null for default configuration. 
+            <para/>
+            This cache holds small amount of data, but should not lose entries. At least one backup recommended.
+            </param>
+            <param name="dataCacheConfiguration">
+            Configuration of the data cache which holds query results. Null for default configuration.
+            <para/>
+            This cache tolerates lost data and can have no backups.
+            </param>
+            <param name="policy">The caching policy. Null for default <see cref="T:Apache.Ignite.EntityFramework.DbCachingPolicy"/>.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.RegisterProviderServicesReplacer(System.Data.Entity.DbConfiguration,Apache.Ignite.EntityFramework.IDbCachingPolicy,Apache.Ignite.EntityFramework.Impl.DbCache,Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor)">
+            <summary>
+            Registers the provider services replacer.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.GetOrStartIgnite(Apache.Ignite.Core.IgniteConfiguration)">
+            <summary>
+            Gets the Ignite instance.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.GetConfiguration(System.String,System.Boolean)">
+            <summary>
+            Gets the configuration.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.GetDefaultMetaCacheConfiguration(System.String)">
+            <summary>
+            Gets the default meta cache configuration.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.IgniteDbConfiguration.GetDefaultDataCacheConfiguration(System.String)">
+            <summary>
+            Gets the default data cache configuration.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbCache">
+            <summary>
+            Database query cache.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache.ExtensionId">
+            Extension id.  
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache.OpInvalidateSets">
+            Invalidate sets extension operation. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache.OpPutItem">
+            Put data extension operation. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache.OpGetItem">
+            Get data extension operation. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache.MaxExpiryCaches">
+            Max number of cached expiry caches. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache._cache">
+            Main cache: stores SQL -> QueryResult mappings. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache._metaCache">
+            Entity set version cache. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache._expiryCaches">
+            Cached caches per (expiry_seconds * 10). 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbCache._syncRoot">
+            Sync object. 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.#ctor(Apache.Ignite.Core.IIgnite,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration,Apache.Ignite.Core.Cache.Configuration.CacheConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbCache"/> class.
+            </summary>
+            <param name="ignite">The ignite.</param>
+            <param name="metaCacheConfiguration">The meta cache configuration.</param>
+            <param name="dataCacheConfiguration">The data cache configuration.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.GetCacheKey(System.String,System.Collections.Generic.ICollection{System.Data.Entity.Core.Metadata.Edm.EntitySetBase},Apache.Ignite.EntityFramework.DbCachingMode)">
+            <summary>
+            Gets the cache key to be used with GetItem and PutItem.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.GetItem(Apache.Ignite.EntityFramework.Impl.DbCacheKey,System.Object@)">
+            <summary>
+            Gets the item from cache.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.PutItem(Apache.Ignite.EntityFramework.Impl.DbCacheKey,System.Object,System.TimeSpan)">
+            <summary>
+            Puts the item to cache.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.InvalidateSets(System.Collections.Generic.ICollection{System.Data.Entity.Core.Metadata.Edm.EntitySetBase})">
+            <summary>
+            Invalidates the sets.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.GetCacheWithExpiry(System.TimeSpan)">
+            <summary>
+            Gets the cache with expiry policy according to provided expiration date.
+            </summary>
+            <returns>Cache with expiry policy.</returns>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.GetExpiryPolicy(System.Int64)">
+            <summary>
+            Gets the expiry policy.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.GetSeconds(System.TimeSpan)">
+            <summary>
+            Gets the seconds.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.GetEntitySetVersions(System.Collections.Generic.ICollection{System.Data.Entity.Core.Metadata.Edm.EntitySetBase})">
+            <summary>
+            Gets the entity set versions.
+            </summary>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbCache.WriteKey(Apache.Ignite.EntityFramework.Impl.DbCacheKey,Apache.Ignite.Core.Binary.IBinaryRawWriter,System.Boolean)">
+            <summary>
+            Writes the key.
+            </summary>
+        </member>
+        <member name="T:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor">
+            <summary>
+            Intercepts transaction events.
+            </summary>
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor._cache">
+            Cache. 
+        </member>
+        <member name="F:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor._entitySets">
+            Map from tx to dependent sets. HashSet because same sets can be affected multiple times within a tx. 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.#ctor(Apache.Ignite.EntityFramework.Impl.DbCache)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor"/> class.
+            </summary>
+            <param name="cache">The cache.</param>
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.InvalidateCache(System.Collections.Generic.ICollection{System.Data.Entity.Core.Metadata.Edm.EntitySetBase},System.Data.Common.DbTransaction)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.ConnectionGetting(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext{System.Data.Common.DbConnection})">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.ConnectionGot(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext{System.Data.Common.DbConnection})">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.IsolationLevelGetting(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext{System.Data.IsolationLevel})">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.IsolationLevelGot(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext{System.Data.IsolationLevel})">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.Committing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.Disposing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.Disposed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.RollingBack(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
+            <inheritDoc /> 
+        </member>
+        <member name="M:Apache.Ignite.EntityFramework.Impl.DbTransactionInterceptor.RolledBack(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
+            <inheritDoc /> 
+        </member>
+    </members>
+</doc>

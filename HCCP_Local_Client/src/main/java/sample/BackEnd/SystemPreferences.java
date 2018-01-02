@@ -1,7 +1,11 @@
 package sample.BackEnd;
 
 import java.io.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SystemPreferences {
 	private static String hostname;
@@ -120,7 +124,7 @@ public class SystemPreferences {
 			writer.close ();
 			
 			String valid_root = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/GetSudo.sh");
-			
+
 			String install_result = ExecuteCommand ("sh src/main/java/sample/BackEnd/Shell/Install_sys_bench.sh");
 			
 		} catch (IOException E) {
@@ -149,6 +153,58 @@ public class SystemPreferences {
 		time = Double.valueOf (format_decimal);
 		return 100 - time;
 	}
+
+    // 如果有10%可用，就返回0.1
+    public static double getFreeSpaceMem() {
+        String result = ExecuteCommand("free -m");
+        String regex = "\\d*";
+        Pattern p = Pattern.compile(regex);
+
+        Matcher m = p.matcher(result);
+
+        ArrayList<String> nums = new ArrayList<>();
+        while (m.find()) {
+            if (!"".equals(m.group()))
+                nums.add(m.group());
+        }
+        String total_mem = nums.get(0);
+        String used_mem = nums.get(1);
+
+        DecimalFormat df = new DecimalFormat("######0.00");
+
+        double percentage = Double.valueOf(used_mem) / Double.valueOf(total_mem);
+        String string_percentage = df.format(percentage);
+
+        return 1 - Double.valueOf(string_percentage);
+    }
+
+    public static double getFreeCPUsage() {
+        String has_sysstat = ExecuteCommand("which mpstat");
+
+        if (has_sysstat.equals("")) {
+            String get_previllige = ExecuteCommand("sh src/main/java/sample/BackEnd/Shell/GetSudo.sh");
+            String install_result = ExecuteCommand("sh src/main/java/sample/BackEnd/Shell/Install_sys_stat.sh");
+        }
+        // 这里可能需要一些多线程的操作。
+        String result = ExecuteCommand("mpstat");
+
+        int first_index = result.indexOf("all");
+
+        result = result.substring(first_index + 4).trim();
+
+        StringBuilder string_value = new StringBuilder();
+
+        for (int i = 0; i < result.length() && !String.valueOf(result.charAt(i)).equals(" "); ++i) {
+            string_value.append(String.valueOf(result.charAt(i)));
+        }
+
+
+        DecimalFormat df = new DecimalFormat("######0.00");
+
+        String formated_value = df.format(Double.valueOf(String.valueOf(string_value)));
+
+        return (100 - Double.valueOf(formated_value)) / 100;
+    }
 	
 	public static void setThreshold (double _value) {
 		StartThreshold = _value;
