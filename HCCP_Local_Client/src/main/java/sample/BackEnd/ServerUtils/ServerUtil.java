@@ -186,7 +186,7 @@ public abstract class ServerUtil implements SSHHandler {
     public static String register(String email_addr, String nick_name, String pwd) throws Exception {
 
         HttpClient task_post = new DefaultHttpClient();
-        HttpPost post = new HttpPost(url + "/register");
+        HttpPost post = new HttpPost(url + "/Register");
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("email_addr", email_addr));
         params.add(new BasicNameValuePair("nick_name", nick_name));
@@ -201,9 +201,9 @@ public abstract class ServerUtil implements SSHHandler {
             }
             JSONObject jsonObject = new JSONObject(result);
             int register_status = jsonObject.getInt("register_status");
-            String user_id = jsonObject.getString("user_id");
+            int user_id = jsonObject.getInt("user_id");
             if (register_status == 1)
-                return "SUCCESS";
+                return "SUCCESS,your user_id is " + String.valueOf(user_id);
             else
                 return "FAIL";
         }
@@ -253,12 +253,10 @@ public abstract class ServerUtil implements SSHHandler {
         return "UNKNOWN ERROR";
     }
 
-    //    10,邮箱激活及验证，具体地址还不明确
-    public static String email_verification(int user_id, String verification_code) throws Exception {
+    //    10,邮箱激活及验证
+    public static String active(int user_id, String verification_code) throws Exception {
         HttpClient task_post = new DefaultHttpClient();
-        //？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        HttpPost post = new HttpPost(url + "/##");
-        //    ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        HttpPost post = new HttpPost(url + "/Active");
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("user_id", String.valueOf(user_id)));
         params.add(new BasicNameValuePair("verification_code", verification_code));
@@ -389,13 +387,13 @@ public abstract class ServerUtil implements SSHHandler {
     }
 
     //  登录
-    public String login(String user_id, String user_email, String passwd) throws Exception {
+    public static String login(int user_id, String user_email, String passwd) throws Exception {
 
         HttpClient task_post = new DefaultHttpClient();
         HttpPost post = new HttpPost(url + "/login");
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-//            如果没有输入user_id就发送user_email,否则发送user_id
-        if (user_id == null || user_id.equals("")) {
+//            如果没有输入user_id(没有输入就认为是-1)就发送user_email,否则发送user_id
+        if (user_id == -1) {
             params.add(new BasicNameValuePair("user_email", user_email));
         } else {
             params.add(new BasicNameValuePair("user_id", user_email));
@@ -410,9 +408,11 @@ public abstract class ServerUtil implements SSHHandler {
                 result = EntityUtils.toString(httpEntity);
             }
             JSONObject jsonObject = new JSONObject(result);
+            int rtn_user_id = jsonObject.getInt("user_id");
+            String rtn_email = jsonObject.getString("email");
             String port1 = jsonObject.getString("port1");
             String port2 = jsonObject.getString("port2");
-            return "SUCCESS";
+            return "SUCCESS" + "user_id=" + rtn_user_id + "rtn_email=" + rtn_email;
 
         }
         return "401 UNAUTHORIZED";

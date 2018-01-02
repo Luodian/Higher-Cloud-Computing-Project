@@ -65,6 +65,9 @@ class Node {
 }
 
 public class Controller {
+
+    int user_id;
+
 	List<Node> selectedNodes = new ArrayList<> ();
 	Node ownNode = new Node (1, 0);
 	List<Node> allNodes = new ArrayList<> ();
@@ -356,11 +359,11 @@ public class Controller {
 		higherCloud.setId ("higher_cloud");
 		loginPane.add (higherCloud, 0, 0, 3, 1);
 
-		Label userNameLabel = new Label("帐号");
+        Label userNameLabel = new Label("ID/Email");
 		Label pswLabel = new Label ("密码");
-		TextField userName = new TextField ();
+        final TextField userName = new TextField();
 		userName.setPrefWidth (200);
-		PasswordField psw = new PasswordField ();
+        final PasswordField psw = new PasswordField();
 		psw.setPrefWidth (200);
 		loginPane.add (userNameLabel, 0, 2);
 		loginPane.add (pswLabel, 0, 3);
@@ -368,12 +371,16 @@ public class Controller {
 		loginPane.add (psw, 1, 3, 3, 1);
 
 		Button regiBtn = new Button("注册");
-		Button submitBtn = new Button ("登陆");
+        Button loginBtn = new Button("登陆");
 		HBox hBox = new HBox ();
 		hBox.setAlignment(Pos.BOTTOM_CENTER);
 		hBox.setSpacing(150);
-		hBox.getChildren().addAll(regiBtn, submitBtn);
+        hBox.getChildren().addAll(regiBtn, loginBtn);
 		loginPane.add (hBox, 1, 4, 3, 1);
+        final Label loginInfo = new Label();
+        loginInfo.setVisible(false);
+        loginPane.add(loginInfo, 4, 4);
+
 		regiBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -381,15 +388,27 @@ public class Controller {
 
 			}
 		});
-		submitBtn.setOnAction (new EventHandler<ActionEvent> () {
+        loginBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle (ActionEvent event) {
-				new Thread () {
-					@Override
-					public void run() {
-						//这里去发送登陆命令
-					}
-				}.start ();
+                try {
+                    String loginMsg;
+                    if (userName.getText().equals("") || psw.getText().equals("")) {
+                        loginInfo.setVisible(true);
+                        loginInfo.setText("请输入完整信息");
+                    } else {
+                        int cur_id = -1;
+                        String cur_email = "";
+                        if ((userName.getText().contains("@")) && (userName.getText().contains(".com"))) {
+                            cur_email = userName.getText();
+                        } else {
+                            cur_id = Integer.valueOf(userName.getText());
+                        }
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 				loginStage.close ();
 				afterSuccessLogin();
 			}
@@ -400,59 +419,71 @@ public class Controller {
 		loginStage.show();
 	}
 
-	private void regi() {
-		final Stage loginStage = new Stage();
-		GridPane loginPane = new GridPane();
-		loginPane.setPadding(new Insets(20, 20, 20, 20));
-		loginPane.setHgap(25);
-		loginPane.setVgap(25);
-		loginPane.setAlignment(Pos.CENTER);
+    private void regi() {
+        final Stage registerStage = new Stage();
+        GridPane registerPane = new GridPane();
+        registerPane.setPadding(new Insets(20, 20, 20, 20));
+        registerPane.setHgap(20);
+        registerPane.setVgap(20);
+        registerPane.setAlignment(Pos.CENTER);
 
-		Label regiTitle = new Label("注册");
-		regiTitle.setId("regi_title");
-		loginPane.add(regiTitle, 0, 0, 3, 1);
+        Label regiTitle = new Label("注册");
+        regiTitle.setId("regi_title");
+        registerPane.add(regiTitle, 0, 0, 3, 1);
 
-		Label userNameLabel = new Label("用户名");
-		TextField userName = new TextField();
-		userName.setPrefWidth(200);
+        Label userNameLabel = new Label("用户名");
+        final TextField userName = new TextField();
+        userName.setPrefWidth(200);
 
-		Label emailLabel = new Label("邮箱");
+        Label emailLabel = new Label("邮箱");
         final TextField email = new TextField();
-		emailLabel.setPrefWidth(200);
+        emailLabel.setPrefWidth(200);
 
-		Button sendValiCode = new Button("发送验证码");
+        Label pswLabel = new Label("密码");
+        final PasswordField psw = new PasswordField();
+        psw.setPrefWidth(200);
+        Label ensurePswLabel = new Label("确认密码");
+        PasswordField ensurePsw = new PasswordField();
+        ensurePsw.setPrefWidth(200);
 
+        Button sendValiCode = new Button("发送验证码");
+        final Label valiMsg = new Label();
+        valiMsg.setVisible(false);
 
-		Label pswLabel = new Label("密码");
-		PasswordField psw = new PasswordField();
-		psw.setPrefWidth(200);
-		Label ensurePswLabel = new Label("确认密码");
-		PasswordField ensurePsw = new PasswordField();
-		ensurePsw.setPrefWidth(200);
+        final TextField valiCode = new TextField();
+        valiCode.setVisible(false);
+        valiCode.setPrefWidth(200);
 
-		Label valiCodeLabel = new Label("验证码");
-		TextField valiCode = new TextField();
-		valiCode.setPrefWidth(200);
-
-		Button ensureRegiBtn = new Button("确认信息并注册");
+        final Button ensureRegiBtn = new Button("激活注册");
+        ensureRegiBtn.setVisible(false);
 
 //		注册之后的返回消息，默认不可见，若是注册失败，就会显示出来
-		final Label regiRs = new Label();
-		regiRs.setId("regi_rs");
-		regiRs.setVisible(false);
+        final Label regiRs = new Label();
+        regiRs.setId("regi_rs");
+        regiRs.setVisible(false);
 
         sendValiCode.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-//				命令服务器向所填地址发送验证码
                 try {
                     String veriEmail = ServerUtil.check_email_exist(email.getText());
                     if (veriEmail.equals("SUCCESS")) {
 //						说明已经被注册了
-                        regiRs.setText("该邮箱已被使用");
-                        regiRs.setVisible(true);
+                        valiMsg.setText("该邮箱已被使用");
+                        valiMsg.setVisible(true);
                     } else if (veriEmail.equals("FAIL")) {
-
+//                      该邮箱可以使用，执行注册操作
+                        String regiMsg = ServerUtil.register(email.getText(), userName.getText(), psw.getText());
+                        if (regiMsg.contains("SUCCESS")) {
+                            user_id = Integer.valueOf(regiMsg.substring(regiMsg.indexOf("is ") + 1));
+                            valiMsg.setText("激活码已发送\n您的用户id为" + user_id + "\n请于邮箱中查看并填在此处");
+                            valiMsg.setVisible(true);
+                            valiCode.setVisible(true);
+                            ensureRegiBtn.setVisible(true);
+                        } else {
+                            valiMsg.setText("个人信息发送失败");
+                            valiMsg.setVisible(true);
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -460,47 +491,54 @@ public class Controller {
             }
         });
 
-		ensureRegiBtn.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
+        ensureRegiBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 //				向服务器发送注册请求，以及个人信息
-//				String
+                try {
+                    String activeMsg = ServerUtil.active(user_id, valiCode.getText());
+                    if (activeMsg.equals("SUCCESS")) {
+                        regiRs.setText("激活成功");
+                        regiRs.setVisible(true);
+                    } else {
+                        regiRs.setText("注册失败");
+                        regiRs.setVisible(true);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
+        registerPane.add(userNameLabel, 0, 2);
+        registerPane.add(userName, 1, 2, 3, 1);
 
+        registerPane.add(emailLabel, 0, 3);
+        registerPane.add(email, 1, 3, 3, 1);
 
-				regiRs.setText("注册失败");
-				regiRs.setVisible(true);
-			}
-		});
+        registerPane.add(pswLabel, 0, 4);
+        registerPane.add(psw, 1, 4, 3, 1);
 
-		loginPane.add(userNameLabel, 0, 2);
-		loginPane.add(userName, 1, 2, 3, 1);
+        registerPane.add(ensurePswLabel, 0, 5);
+        registerPane.add(ensurePsw, 1, 5, 3, 1);
 
-		loginPane.add(emailLabel, 0, 3);
-		loginPane.add(email, 1, 3, 3, 1);
-		loginPane.add(sendValiCode, 4, 3);
+        registerPane.add(sendValiCode, 1, 6);
 
-		loginPane.add(pswLabel, 0, 4);
-		loginPane.add(psw, 1, 4, 3, 1);
+        registerPane.add(valiMsg, 0, 7);
+        registerPane.add(valiCode, 1, 7, 3, 1);
 
-		loginPane.add(ensurePswLabel, 0, 5);
-		loginPane.add(ensurePsw, 1, 5, 3, 1);
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.BOTTOM_RIGHT);
+        hBox.getChildren().add(ensureRegiBtn);
 
-		loginPane.add(valiCodeLabel, 0, 6);
-		loginPane.add(valiCode, 1, 6, 3, 1);
+        registerPane.add(hBox, 1, 8, 3, 1);
 
-		HBox hBox = new HBox();
-		hBox.setAlignment(Pos.BOTTOM_RIGHT);
-		hBox.getChildren().add(ensureRegiBtn);
-
-		loginPane.add(hBox, 1, 8, 3, 1);
-
-        loginPane.add(regiRs, 4, 8, 3, 1);
-		Scene scene = new Scene(loginPane, 800, 500);
-		scene.getStylesheets().add(Main.class.getResource("Regi.css").toExternalForm());
-		loginStage.setScene (scene);
-		loginStage.show ();
-	}
+        registerPane.add(regiRs, 4, 8, 3, 1);
+        Scene scene = new Scene(registerPane, 800, 500);
+        scene.getStylesheets().add(Main.class.getResource("Regi.css").toExternalForm());
+        registerStage.setScene(scene);
+        registerStage.show();
+    }
 
 	public void init() {
 //		初始化中心图片
