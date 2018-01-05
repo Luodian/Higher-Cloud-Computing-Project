@@ -11,12 +11,16 @@ import javafx.stage.Stage;
 import sample.Control.Controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Main extends Application {
 	
 	public static Stage priStg;
 
 	public static void main(String[] args) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 
 		launch(args);
 //		try {
@@ -55,6 +59,7 @@ public class Main extends Application {
 
 		primaryStage.setTitle ("Higher Compute Platform");
 		primaryStage.setScene (scene);
+//		primaryStage.setFullScreen(true);
 		primaryStage.show ();
 		priStg = primaryStage;
 

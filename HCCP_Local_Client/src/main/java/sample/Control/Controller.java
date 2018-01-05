@@ -2,6 +2,7 @@ package sample.Control;
 
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,27 +10,28 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import sample.BackEnd.ServerUtils.ServerUtil;
 import sample.View.Main;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 class Node {
 	private double direc;
 	private double weight;  //范围是0-1
 	private Button btn;
+	private String msg;
 	
 	public Node (double weight, int index) {
 		this.weight = weight;
@@ -42,7 +44,15 @@ class Node {
 		btn.setMinSize (100 * weight, 100 * weight);
 		btn.setStyle ("-fx-background-color: gray");
 	}
-	
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
 	public double getDirec () {
 		return direc;
 	}
@@ -66,32 +76,40 @@ class Node {
 
 public class Controller {
 
-    int user_id;
+	private boolean online = false;
 
-	List<Node> selectedNodes = new ArrayList<> ();
-	Node ownNode = new Node (1, 0);
-	List<Node> allNodes = new ArrayList<> ();
+	private int user_id = -1;
+	private String user_email;
+
+	private List<Node> selectedNodes = new ArrayList<>();
+	private List<Node> myNodes = new ArrayList<>();
+	private List<Node> allNodes = new ArrayList<>();
+
+	private String curAppName = "None";
+
+	@FXML
+	private HBox add_and_sub_box;
+	@FXML
+	private StackPane center_stack;
+
 	@FXML
 	private Pane center_image;
-
 	@FXML
+	private GridPane bottom_pane;
+	@FXML
+	private Label top_time;
+
 	private Button portrait_btn;
-	@FXML
-	private TextArea log;
-	@FXML
-	private Button login_btn;
+	private Button settings_btn;
 
-	//	@FXML
-//	private ImageView center_image_view;
 	private void alertWhenNotLogin() {
 		final Alert alert = new Alert(Alert.AlertType.WARNING, "请先登陆", new ButtonType("确定", ButtonBar.ButtonData.YES));
 		alert.setTitle("请先登陆");
 		alert.showAndWait();
 	}
 
-	@FXML
-	protected void handleSettings(ActionEvent event) {
-		if (login_btn.getText().equals("下线")) {
+	private void handleSettings(ActionEvent event) {
+		if (online) {
 			final Stage settingsStage = new Stage();
 			GridPane settingsPane = new GridPane();
 			settingsPane.setPadding(new Insets(20, 20, 20, 20));
@@ -188,8 +206,7 @@ public class Controller {
 		}
 	}
 
-	protected void handlePortrait(ActionEvent event) {
-		if (login_btn.getText().equals("下线")) {
+	private void handlePortrait(ActionEvent event) {
 			final Stage infoStage = new Stage();
 			GridPane infoPane = new GridPane();
 			infoPane.setPadding(new Insets(20, 20, 20, 20));
@@ -223,75 +240,107 @@ public class Controller {
 			scene.getStylesheets().add(Main.class.getResource("base.css").toExternalForm());
 			infoStage.setScene(scene);
 			infoStage.show();
-		} else {
-			alertWhenNotLogin();
-		}
 	}
 
-	@FXML
-	protected void handleLoginBtn (ActionEvent event) {
-		if (login_btn.getText().equals("下线")) {
-			init();
-		} else {
-			login();
-		}
+//	@FXML
+//	protected void handleLoginBtn (ActionEvent event) {
+//		if (online) {
+//			stopTimeCnt = true;
+//			init();
+//		} else {
+//			login();
+//		}
+//
+//	}
 
-	}
-	
-	@FXML
-	protected void handleSelectCode (ActionEvent event) {
-		if (login_btn.getText().equals("下线")) {
-			FileChooser fileChooser = new FileChooser();
-			FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("All files (*.*)",
-					"*.*");
-			fileChooser.getExtensionFilters().add(filter);
-			File file = fileChooser.showOpenDialog(Main.priStg);
-            String path = file.toString();
-            System.out.println("path:" + path);
-            try {
-                String rs = ServerUtil.ImgUpload(26, path);
-                System.out.println(rs);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-		} else {
-			alertWhenNotLogin();
-		}
-	}
+//	@FXML
+//	protected void handleSelectCode (ActionEvent event) {
+//		if (online) {
+//			FileChooser fileChooser = new FileChooser();
+//			FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("All files (*.*)",
+//					"*.*");
+//			fileChooser.getExtensionFilters().add(filter);
+//			File file = fileChooser.showOpenDialog(Main.priStg);
+//            String path = file.toString();
+//            System.out.println("path:" + path);
+//            try {
+//                String rs = ServerUtil.ImgUpload(26, path);
+//                System.out.println(rs);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//		} else {
+//			alertWhenNotLogin();
+//		}
+//	}
 
 	private void afterSuccessLogin() {
+
+		online = true;
 //		个人信息部分的更改
 		ImageView portImg = new ImageView(new Image(Main.class.getResourceAsStream("Resources/wdhpor.png")));
-//		宽和高相等
-//		portImg.setFitWidth(portrait_btn.getWidth());
-//		portImg.setFitHeight(portrait_btn.getWidth());
-//		portrait_btn.setMouseTransparent(true);
-		portImg.setFitWidth(login_btn.getWidth());
-		portImg.setFitHeight(login_btn.getWidth());
+		portImg.setFitWidth(130);
+		portImg.setFitHeight(110);
 		portrait_btn.setGraphic(portImg);
 		portrait_btn.setPadding(new Insets(0, 0, 0, 0));
-		login_btn.setText("下线");
 
 //		服务器图片的更改
 		center_image.getChildren ().clear ();
 		selectedNodes.clear ();
 		allNodes.clear ();
-		Button ownBtn = ownNode.getBtn ();
+
+//		启动4个进程
+//		........
+//		自己进程的默认配置
+		double ownWeight = 0.6;
+
+		for (int i = 0; i < 4; i++) {
+			Node node = new Node(ownWeight, i + 1);
+			myNodes.add(node);
+		}
+
+//		这个Button比较大，
+		Button ownBtn = new Button();
+		ownBtn.setText("进程个数" + myNodes.size());
+		ownBtn.setPrefWidth(100);
+		ownBtn.setPrefHeight(100);
 		ownBtn.setLayoutX (center_image.getWidth () * 0.5);
 		ownBtn.setLayoutY (center_image.getHeight () * 0.5);
 		ownBtn.setStyle ("-fx-background-color: #3effa0");
-		//初始化
+
+//		获取网格上的机器,得到allNodes的个数和配置信息， 配置信息设置为msg属性，ping 一下得到对方距离，设置为Direc,
+
 		int nodeNum = 12;
+//		int nodeNum = allNodes.size();
 		double meanDigree = 2 * Math.PI / nodeNum;
 		for (int i = 0; i < nodeNum; i++) {
 			final Node curNode = new Node (Math.random (), i + 1);
+//			final Node curNode = allNodes.get(i);
+			curNode.setMsg("a:1\nb:23");
 			curNode.setDirec (center_image.getHeight () / 6 + center_image.getHeight () / 3 * Math.random ());
+
 			final Button curBtn = curNode.getBtn ();
+			curBtn.setTooltip(new Tooltip(curNode.getMsg()));
 			curBtn.setOnAction (new EventHandler<ActionEvent> () {
 				@Override
 				public void handle (ActionEvent event) {
-					selectedNodes.add (curNode);
+//					selectedNodes.add (curNode);
 					curBtn.setStyle ("-fx-background-color: #ff5758");
+
+					final Stage infoStage = new Stage();
+					GridPane infoPane = new GridPane();
+					infoPane.setPadding(new Insets(20, 20, 20, 20));
+					infoPane.setHgap(25);
+					infoPane.setVgap(25);
+					infoPane.setAlignment(Pos.CENTER);
+
+					Label msgLabel = new Label(curNode.getMsg());
+					infoPane.add(msgLabel, 1, 0, 5, 5);
+					Scene scene = new Scene(infoPane, 400, 500);
+					scene.getStylesheets().add(Main.class.getResource("base.css").toExternalForm());
+					infoStage.setScene(scene);
+					infoStage.show();
+
 				}
 			});
 			curBtn.setLayoutX (ownBtn.getLayoutX () + curNode.getDirec () * Math.cos (i * meanDigree));
@@ -299,19 +348,18 @@ public class Controller {
 			allNodes.add (curNode);
 			center_image.getChildren ().add (curBtn);
 		}
-		center_image.getChildren ().add (ownBtn);
+		center_image.getChildren().add(ownBtn);
+
 	}
 
-//	@FXML
-//	protected void handleSelectSlaver (ActionEvent event) {
-//
-//	}
-	
-	@FXML
 	protected void handlePowerSlaverAction (ActionEvent event) {
-		if (login_btn.getText().equals("下线")) {
+		if (online) {
 			center_image.getChildren().clear();
-			Button ownBtn = ownNode.getBtn();
+//			Button ownBtn = ownNode.getBtn();
+			Button ownBtn = new Button();
+			ownBtn.setPrefWidth(100);
+			ownBtn.setPrefHeight(100);
+			ownBtn.setId("own_btn");
 			ownBtn.setLayoutX(center_image.getWidth() * 0.5);
 			ownBtn.setLayoutY(center_image.getHeight() * 0.5);
 			ownBtn.setStyle("-fx-background-color: #3effa0");
@@ -377,9 +425,9 @@ public class Controller {
 		hBox.setSpacing(150);
         hBox.getChildren().addAll(regiBtn, loginBtn);
 		loginPane.add (hBox, 1, 4, 3, 1);
-        final Label loginInfo = new Label();
+		final Label loginInfo = new Label("");
         loginInfo.setVisible(false);
-        loginPane.add(loginInfo, 4, 4);
+		loginPane.add(loginInfo, 2, 5, 3, 1);
 
 		regiBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -394,8 +442,8 @@ public class Controller {
                 try {
                     String loginMsg;
                     if (userName.getText().equals("") || psw.getText().equals("")) {
-                        loginInfo.setVisible(true);
-                        loginInfo.setText("请输入完整信息");
+						loginInfo.setText("请输入完整信息");
+						loginInfo.setVisible(true);
                     } else {
                         int cur_id = -1;
                         String cur_email = "";
@@ -404,13 +452,20 @@ public class Controller {
                         } else {
                             cur_id = Integer.valueOf(userName.getText());
                         }
+						String loginRst = ServerUtil.login(cur_id, cur_email, psw.getText());
+						if (loginRst.contains("SUCCESS")) {
+							int id_start = loginRst.indexOf("id=") + 3;
+							int id_finish = loginRst.indexOf("rtn_email=");
+							user_id = Integer.valueOf(loginRst.substring(id_start, id_finish));
+							user_email = loginRst.substring(id_finish + 10);
+							loginStage.close();
+							afterSuccessLogin();
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-				loginStage.close ();
-				afterSuccessLogin();
 			}
 		});
 		Scene scene = new Scene (loginPane, 800, 500);
@@ -541,29 +596,160 @@ public class Controller {
     }
 
 	public void init() {
+		online = false;
+
+		curAppName = "no";
+
+//		时间
+		StackPane.setMargin(top_time, new Insets(0, 800, 0, 800));
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+						top_time.setText(df.format(new Date()));
+					}
+				});
+
+			}
+		}, 0, 1000);
+
+//		底部栏
+
+		List<App> appList = new ArrayList<>();
+		App portrait = new App("个人信息", "Resources/dfpor.png");
+		portrait_btn = portrait;
+		portrait.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				if (online)
+					handlePortrait(event);
+				else
+					login();
+			}
+		});
+
+		final App downloadApp = new App("下载", "Resources/image.jpg");
+		downloadApp.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				curAppName = downloadApp.name;
+			}
+		});
+		final App miner = new App("挖矿", "Resources/46.jpg");
+		miner.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				curAppName = miner.name;
+			}
+		});
+		final App settings = new App("配置", "Resources/settings.jpg");
+		settings.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				handleSettings(event);
+			}
+		});
+
+		appList.add(portrait);
+		appList.add(downloadApp);
+		appList.add(miner);
+		appList.add(settings);
+		for (final App app : appList) {
+			bottom_pane.add(app, appList.indexOf(app), 0);
+			Image srcImage = new Image(Main.class.getResourceAsStream(app.picPath));
+			ImageView portImg = new ImageView(srcImage);
+			Rectangle clip = new Rectangle(
+					srcImage.getWidth(), srcImage.getHeight()
+			);
+			clip.setArcWidth(15);
+			clip.setArcHeight(15);
+			portImg.setClip(clip);
+			portImg.setFitWidth(130);
+			portImg.setFitHeight(130);
+			app.setGraphic(portImg);
+			app.setPadding(new Insets(0, 0, 0, 0));
+			Tooltip tooltip = new Tooltip();
+			tooltip.setText(app.name);
+			app.setTooltip(tooltip);
+			if (app.name.equals("个人信息")) {
+				app.setOnAction(new EventHandler<ActionEvent>() {
+					@Override
+					public void handle(ActionEvent event) {
+						app.setText("You touched me!");
+						System.out.println("hello");
+					}
+				});
+			}
+		}
+
+		bottom_pane.setMaxWidth(appList.size() * 130 + 150);
+		bottom_pane.setPadding(new Insets(20, 20, 20, 20));
+		bottom_pane.setAlignment(Pos.BOTTOM_CENTER);
+//		Rectangle clip = new Rectangle(bottom_pane.getWidth(),bottom_pane.getHeight());
+//		clip.setArcWidth(30);
+//		clip.setArcHeight(30);
+//		bottom_pane.setClip(clip);
+		bottom_pane.setEffect(new DropShadow(20, Color.BLACK));
+		center_stack.setAlignment(Pos.CENTER);
+		StackPane.setMargin(bottom_pane, new Insets(800, 1000, 50, 1000));
+
 //		初始化中心图片
 		center_image.getChildren().clear();
 		ImageView centerImageView = new ImageView();
 		centerImageView.setPickOnBounds(true);
 		centerImageView.setPreserveRatio(true);
-		centerImageView.setImage(new Image(Main.class.getResourceAsStream("Resources/46.jpg")));
+		centerImageView.setImage(new Image(Main.class.getResourceAsStream("Resources/cg.jpg")));
+		centerImageView.setFitHeight(center_image.getHeight());
+		centerImageView.setFitWidth(center_image.getWidth());
 		center_image.getChildren().add(centerImageView);
 
-//		初始化登陆按钮和头像信息
-		login_btn.setText("登陆");
-		ImageView portImg = new ImageView(new Image(Main.class.getResourceAsStream("Resources/dfpor.png")));
-		portImg.setFitWidth(130);
-		portImg.setFitHeight(110);
-		portrait_btn.setPadding(new Insets(0, 0, 0, 0));
-		portrait_btn.setGraphic(portImg);
-//		portrait_btn.setMouseTransparent(true);
-		portrait_btn.setOnAction(new EventHandler<ActionEvent>() {
+		Button addNodeBtn = new Button("提供进程");
+		addNodeBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				System.out.println("在之力");
-				handlePortrait(event);
+//				这个0.9 可以设置
+				double weight = 0.9;
+				myNodes.add(new Node(0.9, myNodes.size() + 1));
 			}
 		});
+		Button subNodeBtn = new Button("减少进程");
+		subNodeBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				myNodes.remove(myNodes.size() - 1);
+			}
+		});
+		add_and_sub_box.setVisible(true);
+
+		login();
+
+//		初始化登陆按钮和头像信息
+//		login_btn.setText("登陆");
+//		login_btn.setOnAction(new EventHandler<ActionEvent>() {
+//			@Override
+//			public void handle(ActionEvent event) {
+//				handleLoginBtn(event);
+//			}
+//		});
+
+
+	}
+
+	class App extends Button {
+		String picPath;
+		String name;
+		int state;
+
+		public App(String name, String picPath) {
+			this.picPath = picPath;
+			this.name = name;
+			state = 0;
+//			0表示还没有启动，1表示已经启动
+		}
 	}
 
 }

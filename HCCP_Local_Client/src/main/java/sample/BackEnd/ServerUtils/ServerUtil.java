@@ -389,6 +389,10 @@ public abstract class ServerUtil implements SSHHandler {
     //  登录
     public static String login(int user_id, String user_email, String passwd) throws Exception {
 
+//        CloseableHttpClient client = HttpClients.createDefault();
+//        System.out.println(url);
+//        HttpPost post = new HttpPost(url + "/login");
+
         HttpClient task_post = new DefaultHttpClient();
         HttpPost post = new HttpPost(url + "/login");
         List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -396,7 +400,7 @@ public abstract class ServerUtil implements SSHHandler {
         if (user_id == -1) {
             params.add(new BasicNameValuePair("user_email", user_email));
         } else {
-            params.add(new BasicNameValuePair("user_id", user_email));
+            params.add(new BasicNameValuePair("user_id", String.valueOf(user_id)));
         }
         params.add(new BasicNameValuePair("passwd", passwd));
         post.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
@@ -407,11 +411,12 @@ public abstract class ServerUtil implements SSHHandler {
             if (httpEntity != null) {
                 result = EntityUtils.toString(httpEntity);
             }
+            assert result != null;
             JSONObject jsonObject = new JSONObject(result);
             int rtn_user_id = jsonObject.getInt("user_id");
             String rtn_email = jsonObject.getString("email");
-            String port1 = jsonObject.getString("port1");
-            String port2 = jsonObject.getString("port2");
+//            String port1 = jsonObject.getString("port1");
+//            String port2 = jsonObject.getString("port2");
             return "SUCCESS" + "user_id=" + rtn_user_id + "rtn_email=" + rtn_email;
 
         }
