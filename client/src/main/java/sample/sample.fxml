@@ -1,0 +1,31 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Controller" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+
+    <top>
+        <StackPane fx:id="top_pane" alignment="CENTER">
+            <Label fx:id="top_time" />
+        </StackPane>
+    </top>
+
+    <center>
+        <StackPane fx:id="center_stack" alignment="CENTER">
+            <Pane fx:id="center_image">
+
+            </Pane>
+
+            <!--<GridPane fx:id="bottom_pane" style="-fx-background-color:dimgray" alignment="center" hgap="30" vgap="30"/>-->
+            <!--<HBox fx:id="add_and_sub_box" />-->
+        </StackPane>
+    </center>
+</BorderPane>

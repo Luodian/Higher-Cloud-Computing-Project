@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="sample.DownController" maxHeight="-Infinity" maxWidth="-Infinity"
+          minHeight="-Infinity"
+          minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+  <padding>
+    <Insets top="20" bottom="20" right="20" left="20" />
+  </padding>
+
+    <top>
+        <GridPane alignment="CENTER" vgap="30">
+              <TextField fx:id="url_text" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="10" GridPane.rowSpan="2">
+              </TextField>
+            <Button fx:id="down_btn" text="开始下载" GridPane.columnIndex="11" GridPane.rowIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="2">
+            </Button>
+        </GridPane>
+    </top>
+
+    <center>
+        <Pane>
+            <padding>
+                <Insets top="50" right="120" bottom="50" left="120" />
+            </padding>
+            <Pane fx:id="down_canvas"  GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="6" GridPane.rowSpan="5"
+            prefWidth="750" prefHeight="400">
+            </Pane>
+        </Pane>
+    </center>
+
+</BorderPane>
