@@ -1,0 +1,5 @@
+#portrait {
+    -fx-pref-width: 100 dp;
+    -fx-pref-height: 100dp;
+    -fx-background-image: url("../../../../src/main/java/sample/View/Resources/wdhpor.png");
+}
